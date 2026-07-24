@@ -58,6 +58,25 @@ export const SPACE_PRODUCTS: SpaceProduct[] = [
       "Integrated mechanical manifold prevents thermal transfer to the satellite bus.",
       "Fully compatible with both MS289 and standard green propulsion propellant derivatives."
     ]
+  },
+  {
+    id: "custom-engineering",
+    name: "Custom Engineering Available",
+    caption: "Tailored deployable structures for your mission constraints.",
+    description: "Have unique thrust, tank volume, or structural payload constraints? Our engineering team designs custom deployable structures, fuel manifolds, and micro-thruster groupings built around your mission profile — from first concept sketches through qualification and flight delivery.",
+    badges: ["Bespoke Design", "Mission-Specific", "End-to-End Support", "Any Sat Class"],
+    specs: {
+      "Engagement Model": "Concept-to-flight partnership",
+      "Design Cycle": "8-16 weeks (typical)",
+      "Deliverables": "CAD, FEA reports, EM & FM units",
+      "Compatibility": "CubeSat to 500kg class buses",
+      "Support": "Dedicated engineering liaison"
+    },
+    details: [
+      "Requirements workshop to translate mission constraints into structural specifications.",
+      "Rapid prototyping with iterative design reviews at every milestone.",
+      "Full qualification campaign support including vibration and thermal-vacuum testing."
+    ]
   }
 ];
 

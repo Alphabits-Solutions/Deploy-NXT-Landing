@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronRight, Info, ArrowUpRight, Cpu } from "lucide-react";
+import { ChevronRight, ArrowUpRight, Cpu } from "lucide-react";
 import { SPACE_PRODUCTS } from "../../data/products";
 
 interface ProductsSectionProps {
@@ -13,12 +13,12 @@ export function ProductsSection({ resolvedProdImgs, onProductContact }: Products
   const [selectedProduct, setSelectedProduct] = useState<string | null>("vyom-2u");
 
   return (
-    <section id="products" className="py-24 bg-white border-b border-slate-200 scroll-mt-20">
+    <section id="products" className="py-15 bg-white border-b border-slate-200 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
-          <span className="text-teal-600 font-bold text-xs font-mono uppercase tracking-widest bg-teal-50 px-3 py-1.5 rounded-full border border-teal-100">
+          <span className="text-teal-600 font-bold text-xs font-mono uppercase tracking-widest bg-teal-50 px-3 py-1.5 rounded-full border border-teal-100 inline-block mb-2">
             DEPLOYABLE SOLAR PANELS
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
@@ -76,15 +76,6 @@ export function ProductsSection({ resolvedProdImgs, onProductContact }: Products
               );
             })}
 
-            <div className="p-4 bg-teal-50 border border-teal-100 rounded-xl space-y-2 mt-6">
-              <div className="flex items-center gap-2 text-teal-800 font-bold text-sm">
-                <Info className="h-4 w-4 shrink-0 text-teal-600" />
-                <span>Custom Engineering Available</span>
-              </div>
-              <p className="text-xs text-teal-700 leading-relaxed">
-                Have unique thrust, tank volume, or structural payload constraints? Our engineering team designs custom fuel manifolds and micro-thruster groupings.
-              </p>
-            </div>
           </div>
 
           {/* Right Column: Detailed Product Card */}

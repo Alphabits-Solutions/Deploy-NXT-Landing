@@ -7,12 +7,12 @@ interface TeamSectionProps {
 // DeployNXT team section (Section 3)
 export function TeamSection({ onNavigate }: TeamSectionProps) {
   return (
-    <section id="team" className="py-24 bg-white border-b border-slate-200 scroll-mt-20">
+    <section id="team" className="py-15 bg-white border-b border-slate-200 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header section (aligned with DeployNXT style, Teal colors with White background) */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
-          <span className="text-teal-600 font-mono font-bold text-xs tracking-widest bg-teal-50 px-3 py-1.5 rounded-full border border-teal-100 uppercase">
+          <span className="text-teal-600 font-mono font-bold text-xs tracking-widest bg-teal-50 px-3 py-1.5 rounded-full border border-teal-100 uppercase inline-block mb-2">
             DEEP TECH TALENT PLATFORM
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
@@ -38,8 +38,16 @@ export function TeamSection({ onNavigate }: TeamSectionProps) {
                   <div className="flex items-center gap-4">
 
                     {/* Avatar container */}
-                    <div className="h-16 w-16 rounded-full bg-gradient-to-tr from-teal-500 to-teal-700 flex items-center justify-center text-white font-mono font-bold text-lg shadow-md shadow-teal-900/10">
-                      {member.initials}
+                    <div className="h-16 w-16 rounded-full bg-gradient-to-tr from-teal-500 to-teal-700 flex items-center justify-center text-white font-mono font-bold text-lg shadow-md shadow-teal-900/10 overflow-hidden shrink-0">
+                      {member.avatarUrl ? (
+                        <img
+                          src={member.avatarUrl}
+                          alt={member.name}
+                          className="h-full w-full object-cover"
+                        />
+                      ) : (
+                        member.initials
+                      )}
                     </div>
 
                     <div className="space-y-1 text-left">

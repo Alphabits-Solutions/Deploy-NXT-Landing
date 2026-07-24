@@ -12,7 +12,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
       "Mechanical and Deployable Structures Engineer, Adamant Composites Ltd. (Greece)"
     ],
     linkedinUrl: "https://in.linkedin.com/in/kunalnaik0013",
-    initials: "KN"
+    initials: "KN",
+    avatarUrl: "/images/Kunal Naik.png"
   },
   {
     name: "Rama Theertha Kasi",
@@ -25,7 +26,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
       "Interim Communication Sub-system Lead for Mars Robotic Mission, NASA Ames Research Center"
     ],
     linkedinUrl: "https://www.linkedin.com/in/rama-theertha-kasi", // Fallback link
-    initials: "RK"
+    initials: "RK",
+    avatarUrl: "/images/Rama-Theertha-Kasi-ManSat-Group-800x782.avif"
   },
   // {
   //   name: "Dr. Helena Vance",

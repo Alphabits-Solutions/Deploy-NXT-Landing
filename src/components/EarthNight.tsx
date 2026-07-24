@@ -9,7 +9,7 @@ const ROTATION_SPEED = (2 * Math.PI) / 210; // one revolution ≈ 3.5 min
 const EARTH_RADIUS = 2.7;
 const EARTH_POSITION = new THREE.Vector3(-1.7, -1.2, -1.4);
 const SCENE_TILT_Z = 0; // radians; tilts the horizon line
-const STAR_COUNT = 1000;
+const STAR_COUNT = 3000;
 const AURA_COLOR = new THREE.Color(0x2dd4bf); // rim glow around the limb
 // - 0xffd27f — lighter, softer golden glow
 // - 0xffb347 — deeper orange-amber, more sunset-like

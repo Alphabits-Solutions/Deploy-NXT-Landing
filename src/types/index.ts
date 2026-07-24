@@ -20,6 +20,7 @@ export interface TeamMember {
   experience: string[];
   linkedinUrl: string;
   initials: string;
+  avatarUrl?: string;
 }
 
 export interface SpaceProduct {

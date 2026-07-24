@@ -21,12 +21,12 @@ export function BlogSection() {
   };
 
   return (
-    <section id="blog" className="py-24 bg-white border-b border-slate-200 scroll-mt-20">
+    <section id="blog" className="py-15 bg-white border-b border-slate-200 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
-          <span className="text-teal-600 font-mono font-bold text-xs tracking-widest bg-teal-50 px-3 py-1.5 rounded-full border border-teal-100 uppercase">
+          <span className="text-teal-600 font-mono font-bold text-xs tracking-widest bg-teal-50 px-3 py-1.5 rounded-full border border-teal-100 uppercase inline-block mb-2">
             REPORTS &amp; UPDATES
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">

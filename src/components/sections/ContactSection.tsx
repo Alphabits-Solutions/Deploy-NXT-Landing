@@ -31,15 +31,15 @@ export function ContactSection({ contactForm, setContactForm }: ContactSectionPr
   };
 
   return (
-    <section id="contact" className="py-24 bg-white scroll-mt-20">
+    <section id="contact" className="py-15 bg-white scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
 
           {/* Left Info Column */}
           <div className="lg:col-span-5 space-y-8 text-left">
             <div className="space-y-4">
-              <span className="text-teal-600 font-mono font-bold text-xs tracking-widest bg-teal-50 px-3 py-1.5 rounded-full border border-teal-100 uppercase inline-block">
+              <span className="text-teal-600 font-mono font-bold text-xs tracking-widest bg-teal-50 px-3 py-1.5 rounded-full border border-teal-100 uppercase inline-block mb-2">
                 GET IN TOUCH
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-none">

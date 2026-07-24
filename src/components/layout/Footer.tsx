@@ -57,14 +57,14 @@ export function Footer({ onNavigate }: FooterProps) {
 
           {/* Quick links */}
           <div className="md:col-span-3 space-y-4 text-left">
-            <h5 className="font-mono text-xs text-teal-400 uppercase tracking-widest font-bold">NAVIGATION</h5>
+            {/* <h5 className="font-mono text-xs text-teal-400 uppercase tracking-widest font-bold">NAVIGATION</h5>
             <div className="grid grid-cols-2 gap-2 text-sm text-slate-400">
               {FOOTER_LINKS.map(({ id, label }) => (
                 <button key={id} onClick={() => onNavigate(id)} className="hover:text-white transition-colors text-left py-1 cursor-pointer">
                   {label}
                 </button>
               ))}
-            </div>
+            </div> */}
           </div>
 
           {/* Support / Partners */}
@@ -88,11 +88,11 @@ export function Footer({ onNavigate }: FooterProps) {
             &copy; {new Date().getFullYear()} DeployNXT Private Limited. All Rights Reserved.
           </div>
 
-          <div className="flex flex-wrap gap-6">
+          {/* <div className="flex flex-wrap gap-6">
             <span className="hover:text-slate-300 cursor-pointer">Security Compliance</span>
             <span className="hover:text-slate-300 cursor-pointer">Bilateral NDA Terms</span>
             <span className="hover:text-slate-300 cursor-pointer">ITAR/EAR Controls</span>
-          </div>
+          </div> */}
         </div>
 
       </div>
