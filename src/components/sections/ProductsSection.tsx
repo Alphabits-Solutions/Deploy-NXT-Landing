@@ -1,0 +1,226 @@
+import { useState } from "react";
+import { ChevronRight, Info, ArrowUpRight, Cpu } from "lucide-react";
+import { SPACE_PRODUCTS } from "../../data/products";
+
+interface ProductsSectionProps {
+  resolvedProdImgs: Record<string, string | null>;
+  onProductContact: (productId: string, productName: string) => void;
+}
+
+// Manastu Space-inspired products section (Section 2)
+export function ProductsSection({ resolvedProdImgs, onProductContact }: ProductsSectionProps) {
+  // Selected Product details view
+  const [selectedProduct, setSelectedProduct] = useState<string | null>("vyom-2u");
+
+  return (
+    <section id="products" className="py-24 bg-white border-b border-slate-200 scroll-mt-20">
+      <div className="max-w-7xl mx-auto px-6">
+
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
+          <span className="text-teal-600 font-bold text-xs font-mono uppercase tracking-widest bg-teal-50 px-3 py-1.5 rounded-full border border-teal-100">
+            DEPLOYABLE SOLAR PANELS
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+            Sustainable, Modular &amp; Agile Space Structures
+          </h2>
+          <p className="text-slate-600 text-lg">
+            Replacing heavy, bulky, traditional components with light-weight, deployable structures designed for smallsat and micro-class satellites.
+          </p>
+        </div>
+
+        {/* Interactive Product Showcase Row */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+          {/* Left Column: Product Selection List */}
+          <div className="lg:col-span-5 space-y-4">
+            <span className="text-xs font-mono text-slate-500 uppercase tracking-widest font-bold block mb-2">SELECT A PRODUCT TECHNOLOGY</span>
+
+            {SPACE_PRODUCTS.map((prod) => {
+              const isSelected = selectedProduct === prod.id;
+              return (
+                <button
+                  key={prod.id}
+                  onClick={() => setSelectedProduct(prod.id)}
+                  className={`w-full text-left p-6 rounded-2xl border transition-all duration-300 ${
+                    isSelected
+                      ? "bg-slate-900 border-slate-900 text-white shadow-xl translate-x-2"
+                      : "bg-slate-50 hover:bg-slate-100 border-slate-200 text-slate-800 hover:border-slate-300"
+                  }`}
+                >
+                  <div className="flex items-start justify-between">
+                    <div className="space-y-1">
+                      <h3 className="font-bold text-lg">{prod.name}</h3>
+                      <p className={`text-xs ${isSelected ? "text-teal-300" : "text-teal-600 font-medium"}`}>
+                        {prod.caption}
+                      </p>
+                    </div>
+                    <ChevronRight className={`h-5 w-5 mt-1 transition-transform ${isSelected ? "text-teal-400 rotate-90" : "text-slate-400"}`} />
+                  </div>
+
+                  <div className="flex flex-wrap gap-1.5 mt-4">
+                    {prod.badges.map((badge, idx) => (
+                      <span
+                        key={idx}
+                        className={`text-[10px] font-mono px-2 py-0.5 rounded ${
+                          isSelected
+                            ? "bg-slate-800 text-teal-300"
+                            : "bg-white text-slate-600 border border-slate-200"
+                        }`}
+                      >
+                        {badge}
+                      </span>
+                    ))}
+                  </div>
+                </button>
+              );
+            })}
+
+            <div className="p-4 bg-teal-50 border border-teal-100 rounded-xl space-y-2 mt-6">
+              <div className="flex items-center gap-2 text-teal-800 font-bold text-sm">
+                <Info className="h-4 w-4 shrink-0 text-teal-600" />
+                <span>Custom Engineering Available</span>
+              </div>
+              <p className="text-xs text-teal-700 leading-relaxed">
+                Have unique thrust, tank volume, or structural payload constraints? Our engineering team designs custom fuel manifolds and micro-thruster groupings.
+              </p>
+            </div>
+          </div>
+
+          {/* Right Column: Detailed Product Card */}
+          <div className="lg:col-span-7">
+            {SPACE_PRODUCTS.map((prod) => {
+              if (prod.id !== selectedProduct) return null;
+
+              const customImg = resolvedProdImgs[prod.id];
+
+              return (
+                <div
+                  key={prod.id}
+                  className="bg-slate-50 border border-slate-200/60 rounded-3xl p-8 shadow-sm space-y-8 animate-[fadeIn_0.4s_ease-out]"
+                >
+
+                  {/* Header Details */}
+                  <div className="space-y-3">
+                    <div className="flex flex-wrap gap-2">
+                      {prod.badges.map((b, idx) => (
+                        <span key={idx} className="bg-teal-100 text-teal-800 text-xs font-mono font-bold px-3 py-1 rounded-full">
+                          {b}
+                        </span>
+                      ))}
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900">{prod.name}</h3>
+                    <p className="text-teal-600 text-sm font-semibold tracking-wide italic font-mono">
+                      {prod.caption}
+                    </p>
+                  </div>
+
+                  {/* Image space (Support for Google Drive Direct Link, else fallback mock) */}
+                  <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-slate-900 shadow-inner flex items-center justify-center border border-slate-200">
+                    {customImg ? (
+                      <img
+                        src={customImg}
+                        alt={prod.name}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.currentTarget.style.display = "none";
+                          const fallback = e.currentTarget.nextElementSibling;
+                          if (fallback) fallback.removeAttribute("style");
+                        }}
+                      />
+                    ) : null}
+
+                    {/* Mock schematic / visual fallback if no drive link is configured */}
+                    <div
+                      className="p-8 w-full h-full flex flex-col justify-between"
+                      style={customImg ? { display: "none" } : {}}
+                    >
+                      <div className="flex justify-between items-start">
+                        <div className="space-y-1">
+                          <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest font-bold block">CROSS SECTION MODEL</span>
+                          <span className="text-xs font-mono text-emerald-400">STATUS: VALIDATED</span>
+                        </div>
+                        <Cpu className="h-6 w-6 text-teal-500 animate-[spin_10s_infinite_linear]" />
+                      </div>
+
+                      {/* Beautiful schematic SVG representing space thruster propulsion core */}
+                      <div className="flex justify-center my-4">
+                        <svg className="w-48 h-24 text-teal-400" viewBox="0 0 200 100" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          {/* Outer housing */}
+                          <path d="M40 30 H160 V70 H40 Z" strokeDasharray="3 3" />
+                          {/* Chamber */}
+                          <path d="M70 40 H110 L130 30 L150 50 L130 70 L110 60 H70 Z" fill="currentColor" fillOpacity="0.1" />
+                          {/* Injector plates */}
+                          <line x1="70" y1="40" x2="70" y2="60" strokeWidth="3" />
+                          {/* Exhaust plume */}
+                          <path d="M150 50 L180 20 M150 50 L180 80 M150 50 L190 50" strokeDasharray="2 2" stroke="emerald" />
+                          <circle cx="110" cy="50" r="10" fill="currentColor" className="animate-ping text-teal-500/30" />
+                        </svg>
+                      </div>
+
+                      <div className="flex justify-between items-end text-[10px] font-mono text-slate-500">
+                        <span>DeployNXTNXT CAD LABS v4.1</span>
+                        <span>SCALE: 1:1.5</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Detailed Paragraph Description */}
+                  {/* <div className="space-y-4">
+                    <h4 className="text-xs font-mono text-slate-500 uppercase tracking-wider font-bold">SYSTEM OVERVIEW</h4>
+                    <p className="text-slate-600 text-sm md:text-base leading-relaxed">
+                      {prod.description}
+                    </p>
+                  </div> */}
+
+                  {/* Bullet Highlights */}
+                  {/* <div className="space-y-3 bg-white p-6 rounded-2xl border border-slate-100">
+                    <h4 className="text-xs font-mono text-teal-600 uppercase tracking-wider font-bold">KEY INTEGRATION BENEFITS</h4>
+                    <ul className="space-y-2">
+                      {prod.details.map((detail, idx) => (
+                        <li key={idx} className="flex items-start gap-2 text-slate-700 text-sm">
+                          <Check className="h-4.5 w-4.5 text-teal-500 shrink-0 mt-0.5" />
+                          <span>{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div> */}
+
+                  {/* Tech Specifications Sheets */}
+                  {/* <div className="space-y-4">
+                    <h4 className="text-xs font-mono text-slate-500 uppercase tracking-wider font-bold">DETAILED SPECIFICATIONS</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {Object.entries(prod.specs).map(([key, value]) => (
+                        <div key={key} className="flex items-center justify-between border-b border-slate-200/60 pb-2 text-xs">
+                          <span className="text-slate-500 font-medium">{key}</span>
+                          <span className="text-slate-800 font-mono font-bold text-right">{value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div> */}
+
+                  {/* Contact Us CTA (Autofills and scrolls to Contact Form) */}
+                  <div className="pt-4 border-t border-slate-200 flex items-center justify-between flex-wrap gap-4">
+                    <div className="text-xs text-slate-500">
+                      Need tailored datasheets or custom payload simulations?
+                    </div>
+                    <button
+                      onClick={() => onProductContact(prod.id, prod.name)}
+                      className="bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm px-6 py-3 rounded-xl transition-all shadow-md shadow-teal-600/10 flex items-center gap-1.5 hover:scale-[1.02]"
+                    >
+                      Contact us for more
+                      <ArrowUpRight className="h-4 w-4" />
+                    </button>
+                  </div>
+
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  );
+}

@@ -1,1 +1,29 @@
 @import "tailwindcss";
+
+/* Supporters logo marquee: track holds two copies of the logo list,
+   so sliding -50% loops seamlessly. */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  width: max-content;
+  animation: marquee 60s linear infinite;
+}
+
+/* Hero satellite: slow orbital drift */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-16px) rotate(1.5deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+
+  .animate-\[float_7s_ease-in-out_infinite\] {
+    animation: none;
+  }
+}
