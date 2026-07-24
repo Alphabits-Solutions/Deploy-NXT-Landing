@@ -2,15 +2,6 @@ interface FooterProps {
   onNavigate: (id: string) => void;
 }
 
-const FOOTER_LINKS = [
-  { id: "home", label: "Home" },
-  { id: "products", label: "Products" },
-  { id: "team", label: "Team" },
-  { id: "careers", label: "Careers" },
-  { id: "blog", label: "Blog" },
-  { id: "contact", label: "Contact" }
-];
-
 // Premium comprehensive footer
 export function Footer({ onNavigate }: FooterProps) {
   return (
@@ -28,17 +19,13 @@ export function Footer({ onNavigate }: FooterProps) {
           <div className="md:col-span-5 space-y-6 text-left">
             <button
               onClick={() => onNavigate("home")}
-              className="flex items-center gap-3 text-left cursor-pointer"
+              className="inline-flex items-center bg-white rounded-xl px-4 py-2 text-left cursor-pointer"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-teal-500 to-emerald-400 text-white shadow-md">
-                <svg className="h-6 w-6 stroke-[1.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-.108-7.843-.258" />
-                </svg>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-extrabold tracking-tight text-xl text-white font-mono">DeployNXT</span>
-                <span className="text-[9px] font-mono tracking-widest text-teal-400 font-bold uppercase">DEPLOYABLE SPACE SYSTEMS</span>
-              </div>
+              <img
+                src="/images/DNX%20Logo/DeployNXT_logo_combined.png"
+                alt="DeployNXT — Design, Develop, Disrupt"
+                className="h-10 w-auto object-contain"
+              />
             </button>
 
             <p className="text-slate-400 text-sm leading-relaxed max-w-sm">

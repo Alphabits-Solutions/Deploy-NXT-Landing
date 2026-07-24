@@ -22,5 +22,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: "January 2026",
     readTime: "6 min read",
     snippet: "With the international phase-out of carcinogenic hydrazine, our table-salt-safe propellant blend offers standard satellite manufacturers an immediate, drop-in replacement."
+  },
+  {
+    title: "Inside the Cleanroom: Qualifying Deployable Booms for a 500-Cycle Fatigue Life",
+    category: "Engineering",
+    date: "December 2025",
+    readTime: "5 min read",
+    snippet: "A behind-the-scenes look at our thermal-vacuum and vibration campaign, where carbon-fiber deployable booms endured 500 stow-deploy cycles without measurable stiffness loss."
   }
 ];

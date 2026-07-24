@@ -39,6 +39,8 @@ export interface BlogArticle {
   date: string;
   readTime: string;
   snippet: string;
+  /** Cover image URL; falls back to a category-themed placeholder when absent */
+  image?: string;
 }
 
 export interface ContactFormData {

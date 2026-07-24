@@ -18,7 +18,6 @@ export default function App() {
   const { activeSection, scrollToSection } = useActiveSection();
 
   // Custom Google Drive asset links (State driven, allowing users to test live!)
-  const [logoLink, setLogoLink] = useState(""); // User can enter any Google Drive link
   const [prodImgLinks, setProdImgLinks] = useState<Record<string, string>>({
     "vyom-2u": "",
     "ibooster": "",
@@ -49,7 +48,6 @@ export default function App() {
   };
 
   // Generate resolved image urls (converting Google Drive links if provided)
-  const resolvedLogo = logoLink ? convertGoogleDriveLink(logoLink) : null;
   const resolvedProdImgs: Record<string, string | null> = Object.fromEntries(
     Object.entries(prodImgLinks).map(([id, link]) => [id, link ? convertGoogleDriveLink(link) : null])
   );
@@ -58,7 +56,7 @@ export default function App() {
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-teal-500 selection:text-white relative">
 
       {/* <FloatingNav activeSection={activeSection} onNavigate={scrollToSection} /> */}
-      <Header activeSection={activeSection} onNavigate={scrollToSection} resolvedLogo={resolvedLogo} />
+      <Header activeSection={activeSection} onNavigate={scrollToSection} />
 
       <HeroSection onNavigate={scrollToSection} />
       <ProductsSection resolvedProdImgs={resolvedProdImgs} onProductContact={handleProductContact} />
@@ -69,8 +67,7 @@ export default function App() {
       <ContactSection contactForm={contactForm} setContactForm={setContactForm} />
 
       <GDriveWorkspace
-        onSave={(logo, prodLinks) => {
-          setLogoLink(logo);
+        onSave={(_logo, prodLinks) => {
           setProdImgLinks(prodLinks);
         }}
       />
