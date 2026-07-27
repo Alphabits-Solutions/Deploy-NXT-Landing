@@ -31,6 +31,8 @@ export interface SpaceProduct {
   badges: string[];
   specs: Record<string, string>;
   details: string[];
+  /** Local product image paths shown in the right-column slideshow */
+  images: string[];
 }
 
 export interface BlogArticle {

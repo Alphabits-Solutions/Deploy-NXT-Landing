@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronRight, ArrowUpRight, Cpu } from "lucide-react";
 import { SPACE_PRODUCTS } from "../../data/products";
+import { ProductImageSlideshow } from "../ProductImageSlideshow";
 
 interface ProductsSectionProps {
   resolvedProdImgs: Record<string, string | null>;
@@ -106,54 +107,45 @@ export function ProductsSection({ resolvedProdImgs, onProductContact }: Products
                     </p>
                   </div>
 
-                  {/* Image space (Support for Google Drive Direct Link, else fallback mock) */}
+                  {/* Image space: auto-advancing, manually scrollable vertical slideshow.
+                      Falls back to a Google Drive override or the schematic mock. */}
                   <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-slate-900 shadow-inner flex items-center justify-center border border-slate-200">
-                    {customImg ? (
-                      <img
-                        src={customImg}
-                        alt={prod.name}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          e.currentTarget.style.display = "none";
-                          const fallback = e.currentTarget.nextElementSibling;
-                          if (fallback) fallback.removeAttribute("style");
-                        }}
-                      />
-                    ) : null}
+                    <ProductImageSlideshow
+                      images={prod.images}
+                      overrideSrc={customImg}
+                      productName={prod.name}
+                      fallback={
+                        <div className="p-8 w-full h-full flex flex-col justify-between">
+                          <div className="flex justify-between items-start">
+                            <div className="space-y-1">
+                              <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest font-bold block">CROSS SECTION MODEL</span>
+                              <span className="text-xs font-mono text-emerald-400">STATUS: VALIDATED</span>
+                            </div>
+                            <Cpu className="h-6 w-6 text-teal-500 animate-[spin_10s_infinite_linear]" />
+                          </div>
 
-                    {/* Mock schematic / visual fallback if no drive link is configured */}
-                    <div
-                      className="p-8 w-full h-full flex flex-col justify-between"
-                      style={customImg ? { display: "none" } : {}}
-                    >
-                      <div className="flex justify-between items-start">
-                        <div className="space-y-1">
-                          <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest font-bold block">CROSS SECTION MODEL</span>
-                          <span className="text-xs font-mono text-emerald-400">STATUS: VALIDATED</span>
+                          {/* Beautiful schematic SVG representing space thruster propulsion core */}
+                          <div className="flex justify-center my-4">
+                            <svg className="w-48 h-24 text-teal-400" viewBox="0 0 200 100" fill="none" stroke="currentColor" strokeWidth="1.5">
+                              {/* Outer housing */}
+                              <path d="M40 30 H160 V70 H40 Z" strokeDasharray="3 3" />
+                              {/* Chamber */}
+                              <path d="M70 40 H110 L130 30 L150 50 L130 70 L110 60 H70 Z" fill="currentColor" fillOpacity="0.1" />
+                              {/* Injector plates */}
+                              <line x1="70" y1="40" x2="70" y2="60" strokeWidth="3" />
+                              {/* Exhaust plume */}
+                              <path d="M150 50 L180 20 M150 50 L180 80 M150 50 L190 50" strokeDasharray="2 2" stroke="emerald" />
+                              <circle cx="110" cy="50" r="10" fill="currentColor" className="animate-ping text-teal-500/30" />
+                            </svg>
+                          </div>
+
+                          <div className="flex justify-between items-end text-[10px] font-mono text-slate-500">
+                            <span>DeployNXTNXT CAD LABS v4.1</span>
+                            <span>SCALE: 1:1.5</span>
+                          </div>
                         </div>
-                        <Cpu className="h-6 w-6 text-teal-500 animate-[spin_10s_infinite_linear]" />
-                      </div>
-
-                      {/* Beautiful schematic SVG representing space thruster propulsion core */}
-                      <div className="flex justify-center my-4">
-                        <svg className="w-48 h-24 text-teal-400" viewBox="0 0 200 100" fill="none" stroke="currentColor" strokeWidth="1.5">
-                          {/* Outer housing */}
-                          <path d="M40 30 H160 V70 H40 Z" strokeDasharray="3 3" />
-                          {/* Chamber */}
-                          <path d="M70 40 H110 L130 30 L150 50 L130 70 L110 60 H70 Z" fill="currentColor" fillOpacity="0.1" />
-                          {/* Injector plates */}
-                          <line x1="70" y1="40" x2="70" y2="60" strokeWidth="3" />
-                          {/* Exhaust plume */}
-                          <path d="M150 50 L180 20 M150 50 L180 80 M150 50 L190 50" strokeDasharray="2 2" stroke="emerald" />
-                          <circle cx="110" cy="50" r="10" fill="currentColor" className="animate-ping text-teal-500/30" />
-                        </svg>
-                      </div>
-
-                      <div className="flex justify-between items-end text-[10px] font-mono text-slate-500">
-                        <span>DeployNXTNXT CAD LABS v4.1</span>
-                        <span>SCALE: 1:1.5</span>
-                      </div>
-                    </div>
+                      }
+                    />
                   </div>
 
                   {/* Detailed Paragraph Description */}

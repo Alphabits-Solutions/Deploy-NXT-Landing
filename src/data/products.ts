@@ -1,5 +1,9 @@
 import type { SpaceProduct } from "../types";
 
+// Base path for the local product image assets (folder names contain spaces).
+const IMG_DIR = "/images/Product Images/Product Images";
+const img = (file: string) => encodeURI(`${IMG_DIR}/${file}`);
+
 // Products (inspired by Manastu Space, Teal branding)
 export const SPACE_PRODUCTS: SpaceProduct[] = [
   {
@@ -19,6 +23,11 @@ export const SPACE_PRODUCTS: SpaceProduct[] = [
       "In-orbit demonstrated on ISRO's POEM-4 platform.",
       "Modular block design allows customizable propellant tanks to easily size up or down.",
       "Completely eliminates toxic propellant safety gear, saving up to $150k in launch campaign prep."
+    ],
+    images: [
+      img("Fold Class Deployed.jpg"),
+      img("Fold Class Variant 1.png"),
+      img("Fold Class 2nd Variant.jpg")
     ]
   },
   {
@@ -38,6 +47,9 @@ export const SPACE_PRODUCTS: SpaceProduct[] = [
       "Engineered for deep-space trajectory adjustments and strategic orbital maneuvers.",
       "Includes redundant flow-control valves and ultra-fast response heater arrays.",
       "Successfully integrated and validated for defense research agency requirements."
+    ],
+    images: [
+      img("Flexclass.jpg")
     ]
   },
   {
@@ -57,6 +69,10 @@ export const SPACE_PRODUCTS: SpaceProduct[] = [
       "High frequency pulsing allows sub-millimeter level positioning on orbits.",
       "Integrated mechanical manifold prevents thermal transfer to the satellite bus.",
       "Fully compatible with both MS289 and standard green propulsion propellant derivatives."
+    ],
+    images: [
+      img("Radiator.png"),
+      img("Radiator 2.png")
     ]
   },
   {
@@ -76,6 +92,9 @@ export const SPACE_PRODUCTS: SpaceProduct[] = [
       "Requirements workshop to translate mission constraints into structural specifications.",
       "Rapid prototyping with iterative design reviews at every milestone.",
       "Full qualification campaign support including vibration and thermal-vacuum testing."
+    ],
+    images: [
+      img("Earth Image with Satellite.jpg")
     ]
   }
 ];
