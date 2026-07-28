@@ -31,14 +31,13 @@ export function SupportersSection() {
       <div className="marquee relative mt-10">
         <div className="marquee-track flex items-center">
           {LOOP.map((supporter, i) => (
-            // White tile behind each logo — several are dark artwork on a
-            // transparent background and would vanish against the dark band.
+            // Logos sit directly on the dark band (transparent PNGs, no tile).
             <div
               key={`${supporter.name}-${i}`}
               aria-hidden={i >= SUPPORTERS.length}
               onMouseMove={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
-              className={`mx-10 shrink-0 rounded-xl bg-white px-8 py-4 transition-all duration-300 ${
+              className={`mx-10 shrink-0 rounded-xl px-8 py-4 transition-all duration-300 ${
                 hovered === i
                   ? "opacity-100 scale-110 drop-shadow-[0_0_12px_rgba(45,212,191,0.45)]"
                   : "opacity-80"
