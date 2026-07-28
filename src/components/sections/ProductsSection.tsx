@@ -63,10 +63,10 @@ export function ProductsSection({ resolvedProdImgs, onProductContact }: Products
                     {prod.badges.map((badge, idx) => (
                       <span
                         key={idx}
-                        className={`text-[10px] font-mono px-2 py-0.5 rounded ${
+                        className={`text-[10px] font-mono px-2 py-0.5 rounded border ${
                           isSelected
-                            ? "bg-white/10 text-accent"
-                            : "bg-white text-body border border-hairline"
+                            ? "bg-white/10 text-accent border-transparent"
+                            : "bg-white text-body border-hairline"
                         }`}
                       >
                         {badge}

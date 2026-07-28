@@ -56,7 +56,7 @@ function SingleImage({
     <img
       src={src}
       alt={productName}
-      className="w-full h-full object-cover block"
+      className="absolute inset-0 w-full h-full object-cover block"
       onError={() => setFailed(true)}
     />
   );
