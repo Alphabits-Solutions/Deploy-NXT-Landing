@@ -109,7 +109,7 @@ export function ProductsSection({ resolvedProdImgs, onProductContact }: Products
 
                   {/* Image space: auto-advancing, manually scrollable vertical slideshow.
                       Falls back to a Google Drive override or the schematic mock. */}
-                  <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-slate-900 shadow-inner flex items-center justify-center border border-slate-200">
+                  <div className="relative w-full flex-1 min-h-0 rounded-2xl overflow-hidden bg-slate-900 shadow-inner flex items-center justify-center border border-slate-200">
                     <ProductImageSlideshow
                       images={prod.images}
                       overrideSrc={customImg}
