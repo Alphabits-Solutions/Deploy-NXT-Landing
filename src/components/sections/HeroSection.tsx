@@ -8,10 +8,14 @@ interface HeroSectionProps {
 // Astradyne-style hero section (Section 1)
 export function HeroSection({ onNavigate }: HeroSectionProps) {
   return (
-    <section id="home" className="relative min-h-[calc(100vh-80px)] flex items-center justify-center overflow-hidden bg-slate-950">
-
-      {/* 3D night Earth scene over a deep-space gradient */}
-      <div className="absolute inset-0 z-0">
+    <section
+      id="home"
+      className="relative -mt-20 min-h-screen flex items-center justify-center overflow-hidden bg-slate-950"
+    >
+      {/* 3D night Earth scene over a deep-space gradient.
+          The section (dark bg) spans behind the 80px nav to fill the whole page,
+          but the Earth is pinned to top-20 so it stays exactly where it was originally. */}
+      <div className="absolute top-20 inset-x-0 bottom-0 z-0">
         <EarthNight />
         {/* Dark futuristic overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-slate-950/10 to-slate-900/20 z-10 pointer-events-none" />
@@ -19,25 +23,27 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
       </div>
 
       {/* Content Box */}
-      <div className="relative z-20 max-w-7xl mx-auto px-6 py-20 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
+      <div className="relative z-20 max-w-7xl mx-auto px-6 pt-40 pb-20 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Text panel */}
         <div className="lg:col-span-7 space-y-8 text-left">
-
           <div className="inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/30 rounded-full px-4 py-1.5 text-teal-400 text-xs font-mono font-bold tracking-wider uppercase">
-            <Sparkles className="h-3 w-3 animate-spin" /> Miniaturizing mission-critical components
+            <Sparkles className="h-3 w-3 animate-spin" /> Miniaturizing
+            mission-critical components
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight font-sans">
             Origami-Inspired <br />
             <span className="bg-gradient-to-r from-teal-400 via-emerald-300 to-teal-200 bg-clip-text text-transparent">
               Deployable Structures
-            </span> <br />
-             for Space & Terrestrial Infrastructure
+            </span>{" "}
+            <br />
+            for Space & Terrestrial Infrastructure
           </h1>
 
           <p className="text-slate-300 text-lg md:text-xl font-normal leading-relaxed max-w-xl">
-            Engineering ultra-lightweight, flexible solar arrays and other deployable structures. Reimagining satellite mobility and power density where mission performance cannot fail.
+            Engineering ultra-lightweight, flexible solar arrays and other
+            deployable structures. Reimagining satellite mobility and power
+            density where mission performance cannot fail.
           </p>
 
           {/* CTAs */}
@@ -57,18 +63,20 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
               <ChevronRight className="h-5 w-5 text-teal-400" />
             </button>
           </div>
-
         </div>
 
         {/* Satellite showcase — the main subject */}
         <div className="hidden lg:flex lg:col-span-5 relative items-center justify-center">
           {/* soft teal halo behind the satellite */}
           <div className="absolute inset-8 bg-teal-500/15 blur-3xl rounded-full" />
-          <img
-            src="/images/Solar_Panel.png"
-            alt="DeployNXT deployable solar array satellite"
-            className="relative w-full max-w-xl animate-[float_7s_ease-in-out_infinite]"
-          />
+          {/* slant wrapper — tilts the satellite down-right; float animation lives on the img so drift + tilt don't fight */}
+          <div className="relative rotate-[-25deg] scale-[1.8] lg:translate-x-16">
+            <img
+              src="/images/Solar_Panel.png"
+              alt="DeployNXT deployable solar array satellite"
+              className="w-full max-w-2xl animate-[float_7s_ease-in-out_infinite]"
+            />
+          </div>
         </div>
 
         {/* Telemetry Stats Overlay Panel (Astradyne style) */}
@@ -82,8 +90,8 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
               <span className="text-xs font-mono text-teal-400">TRL-4 </span>
             </div> */}
 
-            {/* Stats Grid */}
-            {/* <div className="grid grid-cols-2 gap-4">
+        {/* Stats Grid */}
+        {/* <div className="grid grid-cols-2 gap-4">
 
               <div className="bg-slate-950/60 rounded-xl p-4 border border-slate-800/80">
                 <div className="text-[10px] font-mono text-slate-500 font-bold uppercase tracking-wider">Solar Array Fold Ratio</div>
@@ -111,8 +119,8 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
 
             </div> */}
 
-            {/* Mini visual representation of deployable solar ribs */}
-            {/* <div className="bg-slate-950/80 rounded-xl p-4 border border-slate-800 space-y-3">
+        {/* Mini visual representation of deployable solar ribs */}
+        {/* <div className="bg-slate-950/80 rounded-xl p-4 border border-slate-800 space-y-3">
               <div className="flex justify-between items-center">
                 <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest font-bold">Origami Rib Deployment Sequence</span>
                 <span className="text-[10px] font-mono text-emerald-400">100% DEPLOYED</span>
@@ -130,7 +138,6 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
 
           </div>
         </div> */}
-
       </div>
 
       {/* Scroll Indicator */}
@@ -140,7 +147,6 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
           <div className="w-1.5 h-1.5 bg-teal-400 rounded-full animate-bounce mx-auto" />
         </div>
       </div> */}
-
     </section>
   );
 }

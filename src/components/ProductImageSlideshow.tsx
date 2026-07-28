@@ -56,7 +56,7 @@ function SingleImage({
     <img
       src={src}
       alt={productName}
-      className="w-full h-full object-cover"
+      className="w-full h-full object-cover block"
       onError={() => setFailed(true)}
     />
   );
@@ -170,7 +170,7 @@ function MultiSlideshow({
               src={src}
               alt={`${productName} — view ${i + 1}`}
               draggable={false}
-              className="w-full h-full object-cover select-none"
+              className="w-full h-full object-cover block select-none"
               loading={i === 0 ? "eager" : "lazy"}
             />
           </div>

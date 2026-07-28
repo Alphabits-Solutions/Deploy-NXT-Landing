@@ -11,14 +11,14 @@ import { TeamSection } from "./components/sections/TeamSection";
 import { CareersSection } from "./components/sections/CareersSection";
 import { BlogSection } from "./components/sections/BlogSection";
 import { ContactSection, EMPTY_CONTACT_FORM } from "./components/sections/ContactSection";
-import { GDriveWorkspace } from "./components/GDriveWorkspace";
+// import { GDriveWorkspace } from "./components/GDriveWorkspace";
 import type { ContactFormData } from "./types";
 
 export default function App() {
   const { activeSection, scrollToSection } = useActiveSection();
 
   // Custom Google Drive asset links (State driven, allowing users to test live!)
-  const [prodImgLinks, setProdImgLinks] = useState<Record<string, string>>({
+  const [prodImgLinks, _setProdImgLinks] = useState<Record<string, string>>({
     "vyom-2u": "",
     "ibooster": "",
     "thruster-array": ""
@@ -66,11 +66,11 @@ export default function App() {
       <BlogSection />
       <ContactSection contactForm={contactForm} setContactForm={setContactForm} />
 
-      <GDriveWorkspace
+      {/* <GDriveWorkspace
         onSave={(_logo, prodLinks) => {
           setProdImgLinks(prodLinks);
         }}
-      />
+      /> */}
 
       <Footer onNavigate={scrollToSection} />
 

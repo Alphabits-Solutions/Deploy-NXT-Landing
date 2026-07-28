@@ -34,7 +34,7 @@ export function ContactSection({ contactForm, setContactForm }: ContactSectionPr
     <section id="contact" className="py-15 bg-white scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-stretch">
 
           {/* Left Info Column */}
           <div className="lg:col-span-5 space-y-8 text-left">
@@ -100,58 +100,64 @@ export function ContactSection({ contactForm, setContactForm }: ContactSectionPr
           </div>
 
           {/* Right Form Column */}
-          <div className="lg:col-span-7">
-            <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 shadow-sm space-y-6">
+          <div className="lg:col-span-7 flex">
+            <div className="w-full h-full flex flex-col bg-white border-[1.5px] border-accent rounded-[18px] p-9 space-y-6">
 
-              <div className="text-left space-y-1">
-                <h3 className="font-bold text-xl text-slate-900">Secure Consultation Portal</h3>
-                <p className="text-xs text-slate-500 font-mono">ENCRYPTED TRANSMISSION PROTOCOL ACTIVE</p>
+              <div className="text-left space-y-1.5">
+                <h3 className="font-grotesk font-bold text-xl text-ink">Secure Consultation Portal</h3>
+                <div className="inline-flex items-center gap-[7px] text-[10.5px] text-teal-text font-mono tracking-[0.12em]">
+                  <span className="h-[7px] w-[7px] rounded-full bg-accent" />
+                  ENCRYPTED TRANSMISSION PROTOCOL ACTIVE
+                </div>
               </div>
 
-              <form onSubmit={handleContactSubmit} className="space-y-4 text-left">
+              <form onSubmit={handleContactSubmit} className="flex-1 flex flex-col text-left">
+
+                {/* Normal field spacing; the message box grows to fill the card height */}
+                <div className="flex-1 flex flex-col gap-4">
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-1.5 font-bold">Your Name *</label>
+                    <label className="block text-[10.5px] font-mono text-dark-body uppercase tracking-[0.12em] mb-2 font-medium">Your Name *</label>
                     <input
                       type="text"
                       required
                       placeholder="e.g. Kunal Naik"
                       value={contactForm.name}
                       onChange={(e) => setContactForm({...contactForm, name: e.target.value})}
-                      className="w-full bg-white border border-slate-200 focus:border-teal-600 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-teal-600 font-medium"
+                      className="w-full bg-field border-[1.5px] border-hairline rounded-[10px] px-[15px] py-[13px] text-sm text-ink font-mono transition-all focus:outline-none focus:border-accent focus:bg-white focus:ring-4 focus:ring-accent/[0.14]"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-1.5 font-bold">Corporate Email *</label>
+                    <label className="block text-[10.5px] font-mono text-dark-body uppercase tracking-[0.12em] mb-2 font-medium">Corporate Email *</label>
                     <input
                       type="email"
                       required
                       placeholder="e.g. k.naik@deploynxt.com"
                       value={contactForm.email}
                       onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
-                      className="w-full bg-white border border-slate-200 focus:border-teal-600 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-teal-600 font-medium"
+                      className="w-full bg-field border-[1.5px] border-hairline rounded-[10px] px-[15px] py-[13px] text-sm text-ink font-mono transition-all focus:outline-none focus:border-accent focus:bg-white focus:ring-4 focus:ring-accent/[0.14]"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-1.5 font-bold">Organization / Agency</label>
+                    <label className="block text-[10.5px] font-mono text-dark-body uppercase tracking-[0.12em] mb-2 font-medium">Organization / Agency</label>
                     <input
                       type="text"
                       placeholder="e.g. Satellite Launch Corp"
                       value={contactForm.org}
                       onChange={(e) => setContactForm({...contactForm, org: e.target.value})}
-                      className="w-full bg-white border border-slate-200 focus:border-teal-600 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-teal-600 font-medium"
+                      className="w-full bg-field border-[1.5px] border-hairline rounded-[10px] px-[15px] py-[13px] text-sm text-ink font-mono transition-all focus:outline-none focus:border-accent focus:bg-white focus:ring-4 focus:ring-accent/[0.14]"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-1.5 font-bold">Primary Topic of Interest</label>
+                    <label className="block text-[10.5px] font-mono text-dark-body uppercase tracking-[0.12em] mb-2 font-medium">Primary Topic of Interest</label>
                     <select
                       value={contactForm.interest}
                       onChange={(e) => setContactForm({...contactForm, interest: e.target.value})}
-                      className="w-full bg-white border border-slate-200 focus:border-teal-600 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-teal-600 font-medium cursor-pointer"
+                      className="w-full bg-field border-[1.5px] border-hairline rounded-[10px] px-[15px] py-[13px] text-sm text-ink font-mono transition-all cursor-pointer focus:outline-none focus:border-accent focus:bg-white focus:ring-4 focus:ring-accent/[0.14]"
                     >
                       <option value="general">General Corporate Inquiry</option>
                       <option value="vyom-2u">VYOM-2U Green Propulsion System</option>
@@ -163,17 +169,21 @@ export function ContactSection({ contactForm, setContactForm }: ContactSectionPr
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-1.5 font-bold">Your Message / Sizing Requirements *</label>
+                <div className="flex-1 flex flex-col">
+                  <label className="block text-[10.5px] font-mono text-dark-body uppercase tracking-[0.12em] mb-2 font-medium">Your Message / Sizing Requirements *</label>
                   <textarea
                     required
-                    rows={5}
                     placeholder="Please specify payload dimensions, desired total impulse, target launch schedule, or specific skills you are presenting."
                     value={contactForm.message}
                     onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
-                    className="w-full bg-white border border-slate-200 focus:border-teal-600 rounded-xl p-4 text-sm focus:outline-none focus:ring-1 focus:ring-teal-600 font-medium"
+                    className="w-full flex-1 min-h-[120px] resize-y bg-field border-[1.5px] border-hairline rounded-[10px] px-[15px] py-[13px] text-sm text-ink font-mono transition-all focus:outline-none focus:border-accent focus:bg-white focus:ring-4 focus:ring-accent/[0.14]"
                   />
                 </div>
+
+                </div>
+
+                {/* Consent + submit, pinned to the bottom of the card */}
+                <div className="pt-6 space-y-4">
 
                 <div className="flex items-center gap-2 pt-2">
                   <input type="checkbox" id="nda-checkbox" required className="accent-teal-500 h-4 w-4" />
@@ -184,10 +194,12 @@ export function ContactSection({ contactForm, setContactForm }: ContactSectionPr
 
                 <button
                   type="submit"
-                  className="w-full bg-teal-600 hover:bg-teal-700 text-white font-extrabold px-6 py-4 rounded-xl transition-all shadow-md shadow-teal-600/10 hover:shadow-teal-600/20 active:scale-[0.98] text-center"
+                  className="w-full bg-accent hover:bg-accent-hover text-accent-ink font-bold text-[15px] p-4 rounded-xl transition-all active:scale-[0.98] text-center"
                 >
                   Submit Systems Query
                 </button>
+
+                </div>
 
               </form>
 

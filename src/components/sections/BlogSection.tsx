@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowLeft, ArrowRight, Check, ChevronRight, Send } from "lucide-react";
+import { Check, ChevronRight, Send } from "lucide-react";
 import { BLOG_ARTICLES } from "../../data/articles";
 
 // Category-themed cover placeholders shown when an article has no image
@@ -51,46 +51,25 @@ export function BlogSection() {
     <section id="blog" className="py-24 bg-white border-b border-slate-200 scroll-mt-20">
       <div className="max-w-[1240px] mx-auto px-6">
 
-        {/* Header row: title block left, carousel nav right */}
-        <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
-          <div className="flex flex-col gap-3.5 text-left">
-            <span className="font-mono font-bold text-[13px] tracking-[.22em] uppercase text-[#0E9E86]">
-              Latest from the Lab
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#0D1B2A] tracking-[-.02em] leading-[1.08] [font-family:'Space_Grotesk',sans-serif]">
-              Aerospace Insights
-            </h2>
-            <p className="text-base text-[#5A6B7B] leading-[1.7] max-w-[520px]">
-              Active payload operations, deployable research updates and sustainable
-              space-flight breakthroughs — straight from the lab.
-            </p>
-          </div>
-
-          {showNav && (
-            <div className="flex gap-3">
-              <button
-                type="button"
-                aria-label="Previous articles"
-                onClick={() => setSlide(Math.max(0, currentSlide - 1))}
-                className="h-13 w-13 rounded-xl border-[1.5px] border-[#e0e6ea] bg-white text-[#0D1B2A] flex items-center justify-center transition-all duration-200 hover:bg-[#0D1B2A] hover:border-[#0D1B2A] hover:text-white"
-              >
-                <ArrowLeft className="h-5 w-5" />
-              </button>
-              <button
-                type="button"
-                aria-label="Next articles"
-                onClick={() => setSlide(Math.min(maxSlide, currentSlide + 1))}
-                className="h-13 w-13 rounded-xl bg-[#10C7A0] text-[#06231d] flex items-center justify-center transition-all duration-200 hover:bg-[#0fb492]"
-              >
-                <ArrowRight className="h-5 w-5" />
-              </button>
-            </div>
-          )}
+        {/* Header block */}
+        <div className="flex flex-col gap-3.5 mb-12 text-left max-w-[560px]">
+          <span className="font-mono font-bold text-[13px] tracking-[.22em] uppercase text-teal-text">
+            Latest from the Lab
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-ink tracking-[-.02em] leading-[1.08] font-grotesk">
+            Aerospace Insights
+          </h2>
+          <p className="text-base text-body leading-[1.7]">
+            Active payload operations, deployable research updates and sustainable
+            space-flight breakthroughs — straight from the lab.
+          </p>
         </div>
 
-        {/* Carousel — vertical padding + negative margins give the hover
-            lift/shadow room to render inside the overflow-hidden viewport */}
-        <div className="overflow-hidden pt-2 -mt-2 pb-12 -mb-12">
+        {/* Carousel with arrows overlaid on the row edges */}
+        <div className="relative">
+          {/* Viewport — vertical padding + negative margins give the hover
+              lift/shadow room to render inside the overflow-hidden viewport */}
+          <div className="overflow-hidden pt-2 -mt-2 pb-12 -mb-12">
           <div
             className="flex gap-[26px] transition-transform duration-[550ms] ease-[cubic-bezier(.4,0,.2,1)]"
             style={{ transform: trackTransform }}
@@ -99,7 +78,7 @@ export function BlogSection() {
               <article
                 key={idx}
                 style={{ width: `calc((100% - ${gap * (cardsPerView - 1)}px) / ${cardsPerView})` }}
-                className="shrink-0 bg-[#F2F5F7] rounded-[18px] overflow-hidden cursor-pointer text-left transition-[transform,box-shadow] duration-[280ms] ease-out hover:-translate-y-[5px] hover:shadow-[0_24px_44px_-24px_rgba(11,22,34,.4)]"
+                className="shrink-0 bg-card rounded-[18px] overflow-hidden cursor-pointer text-left transition-[transform,box-shadow] duration-[280ms] ease-out hover:-translate-y-[5px] hover:shadow-[0_24px_44px_-24px_rgba(11,22,34,.4)]"
               >
                 <div className="relative h-[220px]">
                   {article.image ? (
@@ -132,6 +111,33 @@ export function BlogSection() {
               </article>
             ))}
           </div>
+          </div>
+
+          {/* Edge arrows — round, teal-ringed, floating over the row edges */}
+          {showNav && (
+            <>
+              <button
+                type="button"
+                aria-label="Previous articles"
+                onClick={() => setSlide(Math.max(0, currentSlide - 1))}
+                className="group absolute top-1/2 -translate-y-1/2 z-10 -left-3 sm:-left-[26px] h-14 w-14 rounded-full border-[1.5px] border-accent bg-white text-ink flex items-center justify-center transition-all duration-200 ease-[cubic-bezier(.4,0,.2,1)] shadow-[0_12px_30px_-12px_rgba(11,22,34,.4),0_0_0_6px_rgba(16,199,160,.08)] hover:bg-accent hover:text-accent-ink hover:scale-[1.08] hover:shadow-[0_16px_34px_-10px_rgba(16,199,160,.6),0_0_0_8px_rgba(16,199,160,.14)]"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                aria-label="Next articles"
+                onClick={() => setSlide(Math.min(maxSlide, currentSlide + 1))}
+                className="group absolute top-1/2 -translate-y-1/2 z-10 -right-3 sm:-right-[26px] h-14 w-14 rounded-full border-[1.5px] border-accent bg-white text-ink flex items-center justify-center transition-all duration-200 ease-[cubic-bezier(.4,0,.2,1)] shadow-[0_12px_30px_-12px_rgba(11,22,34,.4),0_0_0_6px_rgba(16,199,160,.08)] hover:bg-accent hover:text-accent-ink hover:scale-[1.08] hover:shadow-[0_16px_34px_-10px_rgba(16,199,160,.6),0_0_0_8px_rgba(16,199,160,.14)]"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </button>
+            </>
+          )}
         </div>
 
         {/* Dots */}

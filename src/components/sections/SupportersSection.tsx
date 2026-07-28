@@ -13,10 +13,17 @@ export function SupportersSection() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section id="supporters" className="bg-slate-950 py-14 overflow-hidden border-t border-white/5 scroll-mt-20">
+    <section id="supporters" className="relative bg-band py-14 overflow-hidden border-t border-white/5 scroll-mt-20">
+
+      {/* Radial teal glow overlay — same treatment as the Careers band, so the
+          dark navy reads as navy (not flat black) across the full-width band. */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{ background: "radial-gradient(120% 90% at 80% 0%, rgba(16,199,160,.16), transparent 55%)" }}
+      />
 
       {/* Compact uppercase label, matching the hero's mono badge style */}
-      <p className="text-center text-teal-400 text-xs font-mono font-bold tracking-[0.3em] uppercase">
+      <p className="relative text-center text-teal-400 text-xs font-mono font-bold tracking-[0.3em] uppercase">
         Our Supporters
       </p>
 
@@ -48,8 +55,8 @@ export function SupportersSection() {
         </div>
 
         {/* Edge fade masks so logos slide in/out gracefully */}
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-slate-950 to-transparent pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-slate-950 to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-band to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-band to-transparent pointer-events-none" />
       </div>
 
     </section>

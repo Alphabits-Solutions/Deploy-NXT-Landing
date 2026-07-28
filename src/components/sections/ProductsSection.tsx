@@ -35,7 +35,7 @@ export function ProductsSection({ resolvedProdImgs, onProductContact }: Products
 
           {/* Left Column: Product Selection List */}
           <div className="lg:col-span-5 space-y-4">
-            <span className="text-xs font-mono text-slate-500 uppercase tracking-widest font-bold block mb-2">SELECT A PRODUCT TECHNOLOGY</span>
+            <span className="text-[10.5px] font-mono text-meta uppercase tracking-[0.12em] font-medium block mb-2">SELECT A PRODUCT TECHNOLOGY</span>
 
             {SPACE_PRODUCTS.map((prod) => {
               const isSelected = selectedProduct === prod.id;
@@ -43,20 +43,20 @@ export function ProductsSection({ resolvedProdImgs, onProductContact }: Products
                 <button
                   key={prod.id}
                   onClick={() => setSelectedProduct(prod.id)}
-                  className={`w-full text-left p-6 rounded-2xl border transition-all duration-300 ${
+                  className={`w-full text-left px-5 py-[18px] rounded-[14px] border-[1.5px] border-accent transition-[transform,box-shadow] duration-[220ms] ${
                     isSelected
-                      ? "bg-slate-900 border-slate-900 text-white shadow-xl translate-x-2"
-                      : "bg-slate-50 hover:bg-slate-100 border-slate-200 text-slate-800 hover:border-slate-300"
+                      ? "bg-band shadow-[0_14px_34px_-16px_rgba(16,199,160,.7)]"
+                      : "bg-card hover:-translate-y-[3px] hover:shadow-[0_16px_30px_-20px_rgba(11,22,34,.4)]"
                   }`}
                 >
                   <div className="flex items-start justify-between">
                     <div className="space-y-1">
-                      <h3 className="font-bold text-lg">{prod.name}</h3>
-                      <p className={`text-xs ${isSelected ? "text-teal-300" : "text-teal-600 font-medium"}`}>
+                      <h3 className={`font-grotesk font-bold text-base ${isSelected ? "text-white" : "text-ink"}`}>{prod.name}</h3>
+                      <p className={`text-[12.5px] ${isSelected ? "text-dark-body" : "text-body"}`}>
                         {prod.caption}
                       </p>
                     </div>
-                    <ChevronRight className={`h-5 w-5 mt-1 transition-transform ${isSelected ? "text-teal-400 rotate-90" : "text-slate-400"}`} />
+                    <ChevronRight className={`h-5 w-5 mt-1 transition-transform ${isSelected ? "text-accent rotate-90" : "text-meta"}`} />
                   </div>
 
                   <div className="flex flex-wrap gap-1.5 mt-4">
@@ -65,8 +65,8 @@ export function ProductsSection({ resolvedProdImgs, onProductContact }: Products
                         key={idx}
                         className={`text-[10px] font-mono px-2 py-0.5 rounded ${
                           isSelected
-                            ? "bg-slate-800 text-teal-300"
-                            : "bg-white text-slate-600 border border-slate-200"
+                            ? "bg-white/10 text-accent"
+                            : "bg-white text-body border border-hairline"
                         }`}
                       >
                         {badge}
@@ -80,7 +80,7 @@ export function ProductsSection({ resolvedProdImgs, onProductContact }: Products
           </div>
 
           {/* Right Column: Detailed Product Card */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 flex">
             {SPACE_PRODUCTS.map((prod) => {
               if (prod.id !== selectedProduct) return null;
 
@@ -89,7 +89,7 @@ export function ProductsSection({ resolvedProdImgs, onProductContact }: Products
               return (
                 <div
                   key={prod.id}
-                  className="bg-slate-50 border border-slate-200/60 rounded-3xl p-8 shadow-sm space-y-8 animate-[fadeIn_0.4s_ease-out]"
+                  className="w-full h-full flex flex-col bg-card border-[1.5px] border-accent rounded-3xl p-8 space-y-8 animate-[fadeIn_0.4s_ease-out]"
                 >
 
                   {/* Header Details */}
@@ -109,7 +109,7 @@ export function ProductsSection({ resolvedProdImgs, onProductContact }: Products
 
                   {/* Image space: auto-advancing, manually scrollable vertical slideshow.
                       Falls back to a Google Drive override or the schematic mock. */}
-                  <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-slate-900 shadow-inner flex items-center justify-center border border-slate-200">
+                  <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-slate-900 shadow-inner flex items-center justify-center border border-slate-200">
                     <ProductImageSlideshow
                       images={prod.images}
                       overrideSrc={customImg}
@@ -183,7 +183,7 @@ export function ProductsSection({ resolvedProdImgs, onProductContact }: Products
                   </div> */}
 
                   {/* Contact Us CTA (Autofills and scrolls to Contact Form) */}
-                  <div className="pt-4 border-t border-slate-200 flex items-center justify-between flex-wrap gap-4">
+                  <div className="mt-auto pt-4 border-t border-slate-200 flex items-center justify-between flex-wrap gap-4">
                     <div className="text-xs text-slate-500">
                       Need tailored datasheets or custom payload simulations?
                     </div>

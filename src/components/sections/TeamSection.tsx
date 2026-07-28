@@ -30,38 +30,48 @@ export function TeamSection({ onNavigate }: TeamSectionProps) {
             return (
               <div
                 key={idx}
-                className="bg-white border border-slate-200 rounded-3xl p-8 hover:border-teal-500/40 hover:shadow-xl hover:shadow-teal-900/[0.02] transition-all duration-300 flex flex-col justify-between space-y-6"
+                className="relative overflow-hidden bg-white border-[1.5px] border-accent rounded-[18px] p-[30px] pb-[26px] transition-[transform,box-shadow] duration-[280ms] ease-out hover:-translate-y-[5px] hover:shadow-[0_22px_40px_-24px_rgba(11,22,34,.4)] flex flex-col justify-between space-y-6"
               >
-                <div className="space-y-6">
+                {/* Top-right green glow */}
+                <div
+                  className="pointer-events-none absolute -top-[70px] -right-[50px] h-[200px] w-[200px]"
+                  style={{ background: "radial-gradient(circle, rgba(16,199,160,.18), transparent 70%)" }}
+                />
+
+                <div className="relative space-y-6">
 
                   {/* Top avatar and name header block */}
                   <div className="flex items-center gap-4">
 
-                    {/* Avatar container */}
-                    <div className="h-16 w-16 rounded-full bg-gradient-to-tr from-teal-500 to-teal-700 flex items-center justify-center text-white font-mono font-bold text-lg shadow-md shadow-teal-900/10 overflow-hidden shrink-0">
-                      {member.avatarUrl ? (
-                        <img
-                          src={member.avatarUrl}
-                          alt={member.name}
-                          className="h-full w-full object-cover"
-                        />
-                      ) : (
-                        member.initials
-                      )}
+                    {/* Avatar with gradient ring */}
+                    <div className="h-[62px] w-[62px] rounded-full p-[2.5px] bg-gradient-to-br from-accent to-teal-text shrink-0">
+                      <div className="h-full w-full rounded-full bg-[#eef3f2] flex items-center justify-center overflow-hidden">
+                        {member.avatarUrl ? (
+                          <img
+                            src={member.avatarUrl}
+                            alt={member.name}
+                            className="h-full w-full object-cover"
+                          />
+                        ) : (
+                          <span className="font-grotesk font-bold text-xl text-teal-text">
+                            {member.initials}
+                          </span>
+                        )}
+                      </div>
                     </div>
 
-                    <div className="space-y-1 text-left">
-                      <h3 className="font-extrabold text-xl text-slate-900 tracking-tight">
+                    <div className="space-y-1.5 text-left">
+                      <h3 className="font-grotesk font-bold text-[19px] text-ink tracking-tight">
                         {member.name}
                       </h3>
-                      <div className="text-teal-600 text-xs font-mono tracking-widest uppercase font-bold">
+                      <span className="inline-block bg-tag-bg text-teal-text border border-tag-border text-[10px] font-mono tracking-[0.08em] uppercase font-medium px-2.5 py-0.5 rounded-[5px]">
                         {member.role}
-                      </div>
+                      </span>
                     </div>
                   </div>
 
                   {/* Bio paragraph */}
-                  <p className="text-slate-600 text-sm md:text-base leading-relaxed text-left">
+                  <p className="text-body text-sm md:text-[15px] leading-[1.7] text-left">
                     {member.bio}
                   </p>
 
@@ -83,20 +93,19 @@ export function TeamSection({ onNavigate }: TeamSectionProps) {
                 </div>
 
                 {/* Connect block with LinkedIn integration */}
-                <div className="flex items-center justify-between pt-6 border-t border-slate-100">
-                  <span className="text-[11px] font-mono text-slate-400 font-bold uppercase tracking-widest">
+                <div className="relative flex items-center justify-between pt-4 border-t border-[#eef2f4]">
+                  <span className="text-[10px] font-mono text-meta font-medium uppercase tracking-[0.12em]">
                     COMMITTED TO THE ORBIT
                   </span>
                   <a
                     href={member.linkedinUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-600 hover:text-teal-700 bg-teal-50 hover:bg-teal-100 px-3.5 py-1.5 rounded-lg transition-colors border border-teal-100"
+                    className="inline-flex items-center gap-[7px] text-[13.5px] font-bold text-teal-text hover:text-teal-text-hover transition-colors"
                   >
-                    {/* Custom Inline SVG for LinkedIn */}
-                    <svg className="h-3.5 w-3.5 fill-currentColor" viewBox="0 0 24 24">
-                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
+                    <span className="h-5 w-5 rounded-[4px] bg-teal-text text-white flex items-center justify-center font-grotesk text-[11px] font-bold">
+                      in
+                    </span>
                     Connect on LinkedIn
                   </a>
                 </div>

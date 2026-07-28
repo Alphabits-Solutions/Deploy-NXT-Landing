@@ -1,5 +1,45 @@
 @import "tailwindcss";
 
+/* Design-handoff tokens (design_handoff_ui_enhancements/README.md).
+   Named so they compile to Tailwind utilities: bg-accent, text-ink,
+   border-hairline, font-grotesk, etc. Single source of truth for the palette. */
+@theme {
+  /* Fonts */
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-grotesk: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Accent teal */
+  --color-accent: #10c7a0;
+  --color-accent-hover: #0fb492;
+  --color-accent-ink: #06231d;
+  --color-teal-text: #0e9e86;
+  --color-teal-text-hover: #0b7f6c;
+
+  /* Ink / text */
+  --color-ink: #0d1b2a;
+  --color-body: #5a6b7b;
+  --color-meta: #93a3b0;
+
+  /* Light surfaces */
+  --color-card: #f2f5f7;
+  --color-field: #f7f9fa;
+  --color-hairline: #e0e6ea;
+
+  /* Dark surfaces */
+  --color-band: #0b1622;
+  --color-inset: #101d29;
+  --color-input-border: #22323f;
+
+  /* Dark-mode text */
+  --color-dark-body: #8fa1b0;
+  --color-faint: #cfe0ea;
+
+  /* Tag */
+  --color-tag-bg: #e4f5f0;
+  --color-tag-border: #bfe9df;
+}
+
 /* Supporters logo marquee: track holds two copies of the logo list,
    so sliding -50% loops seamlessly. */
 @keyframes marquee {
