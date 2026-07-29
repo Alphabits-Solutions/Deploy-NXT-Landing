@@ -70,7 +70,7 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
           {/* soft teal halo behind the satellite */}
           <div className="absolute inset-8 bg-teal-500/15 blur-3xl rounded-full" />
           {/* slant wrapper — tilts the satellite down-right; float animation lives on the img so drift + tilt don't fight */}
-          <div className="relative rotate-[-25deg] scale-100 lg:scale-110 xl:scale-[1.25] 2xl:scale-[1.4] xl:translate-x-8 2xl:translate-x-16">
+          <div className="relative rotate-[-25deg] scale-100 lg:scale-110 xl:scale-[1.16] 2xl:scale-[1.4] xl:translate-x-8 2xl:translate-x-16">
             <img
               src="/images/Solar_Panel.png"
               alt="DeployNXT deployable solar array satellite"
