@@ -16,12 +16,12 @@ export function Footer({ onNavigate }: FooterProps) {
           <div className="md:col-span-5 space-y-6 text-left">
             <button
               onClick={() => onNavigate("home")}
-              className="inline-flex items-center bg-white rounded-xl px-4 py-2 text-left cursor-pointer"
+              className="inline-flex items-center text-left cursor-pointer"
             >
               <img
-                src="/images/DNX%20Logo/DeployNXT_logo_combined.png"
+                src="/images/DNX%20Logo/DeployNXT_logo_combined_White.png"
                 alt="DeployNXT — Design, Develop, Disrupt"
-                className="h-10 w-auto object-contain"
+                className="h-[60px] w-auto object-contain"
               />
             </button>
 

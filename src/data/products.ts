@@ -1,7 +1,7 @@
 import type { SpaceProduct } from "../types";
 
 // Base path for the local product image assets (folder names contain spaces).
-const IMG_DIR = "/images/Product Images/Product Images";
+const IMG_DIR = "/images/Product Images";
 const img = (file: string) => encodeURI(`${IMG_DIR}/${file}`);
 
 // Products (inspired by Manastu Space, Teal branding)
@@ -25,9 +25,9 @@ export const SPACE_PRODUCTS: SpaceProduct[] = [
       "Completely eliminates toxic propellant safety gear, saving up to $150k in launch campaign prep."
     ],
     images: [
-      img("Fold Class Deployed.jpg"),
+      img("Fold Class Deployed.png"),
       img("Fold Class Variant 1.png"),
-      img("Fold Class 2nd Variant.jpg")
+      img("Fold Class 2nd Variant.png")
     ]
   },
   {
@@ -49,7 +49,7 @@ export const SPACE_PRODUCTS: SpaceProduct[] = [
       "Successfully integrated and validated for defense research agency requirements."
     ],
     images: [
-      img("Flexclass.jpg")
+      img("Flexclass.png")
     ]
   },
   {
@@ -94,7 +94,7 @@ export const SPACE_PRODUCTS: SpaceProduct[] = [
       "Full qualification campaign support including vibration and thermal-vacuum testing."
     ],
     images: [
-      img("Earth Image with Satellite.jpg")
+      img("Earth Image with Satellite.png")
     ]
   }
 ];

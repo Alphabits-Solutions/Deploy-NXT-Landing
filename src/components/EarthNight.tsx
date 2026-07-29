@@ -7,7 +7,7 @@ const TINT_STRENGTH = 0.5;
 const TINT_COLOR = new THREE.Color(0x2dd4bf); // brand teal-400
 const ROTATION_SPEED = (2 * Math.PI) / 210; // one revolution ≈ 3.5 min
 const EARTH_RADIUS = 2.7;
-const EARTH_POSITION = new THREE.Vector3(-1.7, -1.2, -1.4);
+const EARTH_POSITION = new THREE.Vector3(-1.7, -1.4, -1.4);
 const SCENE_TILT_Z = 0; // radians; tilts the horizon line
 const STAR_COUNT = 1500;
 const AURA_COLOR = new THREE.Color(0x2dd4bf); // rim glow around the limb
@@ -197,6 +197,15 @@ export function EarthNight() {
     loader.load("/images/earth_night.jpg", (tex) => {
       tex.colorSpace = THREE.SRGBColorSpace;
       tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+      // The source image is non-power-of-two (3600×1800). Safari's WebGL is
+      // strict about NPOT textures: with mipmaps / repeat wrapping the sphere
+      // renders black. Clamp + linear filtering + no mipmaps keeps it visible
+      // in every browser.
+      tex.wrapS = THREE.ClampToEdgeWrapping;
+      tex.wrapT = THREE.ClampToEdgeWrapping;
+      tex.minFilter = THREE.LinearFilter;
+      tex.generateMipmaps = false;
+      tex.needsUpdate = true;
       earthUniforms.uMap.value = tex;
       earthUniforms.uHasMap.value = 1;
     });

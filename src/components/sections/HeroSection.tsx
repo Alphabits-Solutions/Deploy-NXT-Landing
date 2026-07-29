@@ -13,9 +13,9 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
       className="relative -mt-20 min-h-screen flex items-center justify-center overflow-hidden bg-slate-950"
     >
       {/* 3D night Earth scene over a deep-space gradient.
-          The section (dark bg) spans behind the 80px nav to fill the whole page,
-          but the Earth is pinned to top-20 so it stays exactly where it was originally. */}
-      <div className="absolute top-20 inset-x-0 bottom-0 z-0">
+          Fills the whole section — including behind the transparent nav — so the
+          hero reads as one seamless starfield with no band or cut aura at the top. */}
+      <div className="absolute inset-0 z-0">
         <EarthNight />
         {/* Dark futuristic overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-slate-950/10 to-slate-900/20 z-10 pointer-events-none" />
