@@ -7,25 +7,28 @@ interface TeamSectionProps {
 // DeployNXT team section (Section 3)
 export function TeamSection({ onNavigate }: TeamSectionProps) {
   return (
-    <section id="team" className="py-15 bg-white border-b border-slate-200 scroll-mt-20">
+    <section
+      id="team"
+      className="py-15 bg-white border-b border-slate-200 scroll-mt-20"
+    >
       <div className="max-w-7xl mx-auto px-6">
-
         {/* Header section (aligned with DeployNXT style, Teal colors with White background) */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
           <span className="text-teal-600 font-mono font-bold text-xs tracking-widest bg-teal-50 px-3 py-1.5 rounded-full border border-teal-100 uppercase inline-block mb-2">
-            DEEP TECH TALENT PLATFORM
+            For The Next Frontier
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
             Meet Our Team
           </h2>
           <p className="text-slate-600 text-lg">
-            Cumulatively bringing 15+ years of combined experience working in space, telecom, and deep consulting sectors across 7 countries.
+            Driven by international expertise in engineering, strategy, and
+            deep-tech consulting, we're building the next generation of space
+            infrastructure.
           </p>
         </div>
 
         {/* Team Grid Layout (Matches DeployNXT's premium structure) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-
           {TEAM_MEMBERS.map((member, idx) => {
             return (
               <div
@@ -35,14 +38,15 @@ export function TeamSection({ onNavigate }: TeamSectionProps) {
                 {/* Top-right green glow */}
                 <div
                   className="pointer-events-none absolute -top-[70px] -right-[50px] h-[200px] w-[200px]"
-                  style={{ background: "radial-gradient(circle, rgba(16,199,160,.18), transparent 70%)" }}
+                  style={{
+                    background:
+                      "radial-gradient(circle, rgba(16,199,160,.18), transparent 70%)",
+                  }}
                 />
 
                 <div className="relative space-y-6">
-
                   {/* Top avatar and name header block */}
                   <div className="flex items-center gap-4">
-
                     {/* Avatar with gradient ring */}
                     <div className="h-[62px] w-[62px] rounded-full p-[2.5px] bg-gradient-to-br from-accent to-teal-text shrink-0">
                       <div className="h-full w-full rounded-full bg-[#eef3f2] flex items-center justify-center overflow-hidden">
@@ -89,7 +93,6 @@ export function TeamSection({ onNavigate }: TeamSectionProps) {
                       ))}
                     </div>
                   </div> */}
-
                 </div>
 
                 {/* Connect block with LinkedIn integration */}
@@ -109,21 +112,20 @@ export function TeamSection({ onNavigate }: TeamSectionProps) {
                     Connect on LinkedIn
                   </a>
                 </div>
-
               </div>
             );
           })}
-
         </div>
 
         {/* DeployNXT Credibility Banner */}
         <div className="mt-16 bg-slate-50 border border-slate-200 rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-8 text-left">
           <div className="space-y-2 max-w-2xl">
             <h3 className="font-extrabold text-lg text-slate-900">
-              Are you building serious deep-technology?
+              Building the Next Space Tech?
             </h3>
             <p className="text-sm text-slate-600 leading-relaxed">
-              Our founders have structured aerospace research, filed patents, and successfully sent systems to space. We act as real-world R&amp;D innovation partners to accelerate your spaceflight timeline.
+              Let's engineer it together. Accelerating spacecraft development
+              through collaborative engineering and applied R&amp;D.
             </p>
           </div>
           <button
@@ -133,7 +135,6 @@ export function TeamSection({ onNavigate }: TeamSectionProps) {
             Collaborate With Us
           </button>
         </div>
-
       </div>
     </section>
   );

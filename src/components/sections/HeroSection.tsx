@@ -27,23 +27,22 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
         {/* Text panel */}
         <div className="lg:col-span-7 space-y-8 text-left">
           <div className="inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/30 rounded-full px-4 py-1.5 text-teal-400 text-xs font-mono font-bold tracking-wider uppercase">
-            <Sparkles className="h-3 w-3 animate-spin" /> Miniaturizing
-            mission-critical components
+            <Sparkles className="h-3 w-3 animate-spin" /> Modular • Deployable •
+            Scalable
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight font-sans">
-            Origami-Inspired <br />
+            Mission-Critical <br />
             <span className="bg-gradient-to-r from-teal-400 via-emerald-300 to-teal-200 bg-clip-text text-transparent">
-              Deployable Structures
+              Space Infrastructure
             </span>{" "}
             <br />
-            for Space & Terrestrial Infrastructure
+            for the Next Generation of Satellites
           </h1>
 
           <p className="text-slate-300 text-lg md:text-xl font-normal leading-relaxed max-w-xl">
-            Engineering ultra-lightweight, flexible solar arrays and other
-            deployable structures. Reimagining satellite mobility and power
-            density where mission performance cannot fail.
+            Engineering system that powers next generation of Satellites and
+            Space Missions
           </p>
 
           {/* CTAs */}

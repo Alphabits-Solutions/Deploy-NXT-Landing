@@ -23,7 +23,7 @@ export function SupportersSection() {
       />
 
       {/* Compact uppercase label, matching the hero's mono badge style */}
-      <p className="relative text-center text-teal-400 text-xs font-mono font-bold tracking-[0.3em] uppercase">
+      <p className="relative text-center text-teal-400 text-lg font-mono font-bold tracking-[0.3em] uppercase">
         Our Supporters
       </p>
 

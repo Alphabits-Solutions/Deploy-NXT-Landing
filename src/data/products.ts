@@ -8,10 +8,10 @@ const img = (file: string) => encodeURI(`${IMG_DIR}/${file}`);
 export const SPACE_PRODUCTS: SpaceProduct[] = [
   {
     id: "vyom-2u",
-    name: "FOLD class Deployable Solar Panels",
-    caption: "Sustainable plug-and-play agile orbit maneuvers.",
+    name: "FOLD Class – Rigid Deployable Solar Panels",
+    caption: "Origami-inspired rigid solar arrays for compact, scalable spacecraft",
     description: "A modular, non-toxic space-tested satellite propulsion system designed for small satellites up to 100 kg. Delivering unmatched Δv for orbit raising, station-keeping, collision avoidance, and responsible end-of-life de-orbiting. Replaces toxic, carcinogenic hydrazine with proprietary eco-friendly MS289 propellant.",
-    badges: ["Modular/Adaptable", "TRL-8 Verified", "Zero Toxicity", "100kg Class"],
+    badges: ["Z-type, Accordion Family", "Mission Agnostic", "Nanosat to Microsat class"],
     specs: {
       "Propellant Blend": "MS289 (Hazard index: Salt)",
       "Average Thrust": "1.0 N",
@@ -32,10 +32,10 @@ export const SPACE_PRODUCTS: SpaceProduct[] = [
   },
   {
     id: "ibooster",
-    name: "FLEX class Deployable Solar Panels",
-    caption: "High-impulse, modular propulsion for medium satellites.",
+    name: "FLEX Class – Flexible Deployable Solar Panels",
+    caption: "Flexible solar array engineered for lightweight, high-power spacecraft.",
     description: "An advanced green propulsion suite built for satellites in the 100–500 kg class. Specially engineered in a modular format to support both commercial mega-constellations and strategic defense missions. Highly reliable, customizable tank sizing, and ultra-fast deployment.",
-    badges: ["Heavy Duty", "Customizable Tanks", "DRDO Partner Tech", "100-500kg Class"],
+    badges: ["Adaptive Folding", "High Power Missions", "NanoSat to MicroSat Class"],
     specs: {
       "Propellant Type": "MS289 Green Propellant",
       "Configuration": "4x1N Thruster Array",
@@ -54,10 +54,10 @@ export const SPACE_PRODUCTS: SpaceProduct[] = [
   },
   {
     id: "thruster-array",
-    name: "Body-Mounted Solar Panels",
-    caption: "Multi-directional precision attitude control.",
+    name: "CORE Class – Body Mounted Solar Panels",
+    caption: "Reliable body-mounted solar panels for efficient spacecraft power.",
     description: "An adaptable cluster of four 1-Newton green thrusters integrated into a singular mechanical structure. This setup provides active, instantaneous roll, pitch, and yaw maneuvering, perfect for extreme target pointing and agile attitude operations.",
-    badges: ["4x1N Array", "Agile Maneuvering", "Plug & Play", "Sub-millisecond Precision"],
+    badges: ["Customizable", "Cell Agnostic", "CubeSat to Microsat Class"],
     specs: {
       "Thrusters Included": "4 x 1-Newton Thrusters",
       "Response Time": "< 5 milliseconds",
@@ -77,10 +77,10 @@ export const SPACE_PRODUCTS: SpaceProduct[] = [
   },
   {
     id: "custom-engineering",
-    name: "Custom Engineering Available",
-    caption: "Tailored deployable structures for your mission constraints.",
+    name: "Solar Cell Technology",
+    caption: "Supporting qualified solar cell technologies through a trusted supply chain.",
     description: "Have unique thrust, tank volume, or structural payload constraints? Our engineering team designs custom deployable structures, fuel manifolds, and micro-thruster groupings built around your mission profile — from first concept sketches through qualification and flight delivery.",
-    badges: ["Bespoke Design", "Mission-Specific", "End-to-End Support", "Any Sat Class"],
+    badges: ["Si, GaAs", "Next-Gen", "High Efficiency", "Space Qualified"],
     specs: {
       "Engagement Model": "Concept-to-flight partnership",
       "Design Cycle": "8-16 weeks (typical)",

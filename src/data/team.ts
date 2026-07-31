@@ -5,7 +5,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     name: "Kunal Naik",
     role: "Co-Founder",
-    bio: "Former Spacecraft Mechanical Engineer with 6+ years of specialized experience in the space industry. Master of Science in Space Studies from the prestigious International Space University (Luxembourg/France). Highly active in advanced structural concepts and origami-based deployable architectures.",
+    bio: "A former spacecraft mechanical and systems engineer with 6+ years of international experience working on advanced spacecraft systems from concept through design - analysis to flight model qualification with a focus on deployable structures and origami-inspired architectures.",
     experience: [
       "Spacecraft Mechanical Engineer, Axelspace Corporation (Tokyo, Japan)",
       "Spacecraft Engineer, Maana Electric (Dubai, Luxembourg)",
@@ -18,7 +18,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     name: "Rama Theertha Kasi",
     role: "Co-Founder",
-    bio: "An electronics and communications engineer-turned former strategy consultant for space, aerospace, defence, and telecom clients across India and Europe.",
+    bio: "An electronics and communications engineer turned strategy consultant with 7+ years of international experience driving business strategy and innovation across the space, aerospace, defence, and telecom sectors in India and Europe.",
     experience: [
       "VP, Strategy and International Affairs (Part-time), OrbitAid",
       "Co-Founder and Consultant, Access Hub",
