@@ -3,25 +3,28 @@ import type { JobPosition } from "../types";
 // Careers (easily editable by the user)
 export const SAMPLE_JOBS: JobPosition[] = [
   {
-    id: "propulsion-eng",
-    title: "Senior Spacecraft Mechanical Engineer",
-    department: "Mechanical Systems Engineering",
+    id: "structures-mechanism-eng",
+    title: "Senior Structures and Mechanism Engineer",
+    department: "Mechanical-Systems Engineering",
     location: "Bengaluru, India (On-Site)",
     type: "Full-Time",
-    experience: "2+ Years",
-    salary: "Competitive Space-Industry Standards",
-    description: "We are seeking a visionary Propulsion Engineer to lead the design, thermal analysis, and hot-fire validation of our next-generation MS289 green thrusters. You will work directly with ISRO validation standards and help space-test systems that power commercial mega-constellations.",
+    experience: "4+ Years",
+    description: "We are seeking for a talent to lead the design, analysis, prototyping, and qualification of deployable spacecraft systems. You will develop lightweight structures, precision deployment mechanisms, and flight-ready hardware for next-generation satellite platforms while working closely with manufacturing, testing, and systems engineering teams.",
     responsibilities: [
-      "Lead hot-fire testing operations, propellant feed system calibration, and GNC integration.",
-      "Conduct CFD and thermal analysis on green propellant thrusters operating up to 1300°C.",
-      "Collaborate with manufacturing teams on additive manufacturing (3D metal printing) of thrust chambers.",
-      "Draft and review technical qualification documents for launch vehicle integrations."
+      "Lead the design of deployable spacecraft structures, mechanisms, and flight hardware.",
+      "Perform structural, static, modal, and vibration analyses using FEA tools.",
+      "Design lightweight CFRP, aluminum, and precision mechanical assemblies for space applications.",
+      "Develop hinges, latches, HDRMs, deployment systems, and structural interfaces.",
+      "Support prototype fabrication, assembly, integration, environmental testing, and qualification.",
+      "Participate in PDR/CDR reviews, root-cause investigations, and design improvements."
     ],
     requirements: [
-      "Master's or PhD in Aerospace, Mechanical Engineering, or related deep-tech disciplines.",
-      "Deep understanding of liquid propulsion, fluid mechanics, and non-toxic propellants.",
-      "Hands-on experience with CAD/FEA tools (ANSYS Fluent, Siemens NX, Matlab).",
-      "Prior exposure to spacecraft launch integrations or ISRO qualification protocols is highly desired."
+      "Bachelor's/Master's degree/PhD in Mechanical, Aerospace Engineering or equivalent.",
+      "4+ years of experience designing Flight Hardware, Aerospace or Precision mechanical systems.",
+      "Proficiency in either of SolidWorks, Siemens NX, ANSYS, Abaqus, Nastran, or equivalent CAD/structural analysis software.",
+      "Strong understanding of composites, lightweight structures, mechanisms, and manufacturing.",
+      "Familiarity with ECSS, NASA, or ISRO spacecraft design and qualification practices.",
+      "Strong analytical, communication, and collaboration skills with a proactive approach and eagerness to learn."
     ]
   },
   {
@@ -31,7 +34,6 @@ export const SAMPLE_JOBS: JobPosition[] = [
     location: "Bengaluru, India (On-site)",
     type: "Full-Time",
     experience: "1-2 Years",
-    salary: "Industry Competitive + Equity Options",
     description: "Join the core team responsible for the sub-millisecond precision steering of our satellites. You will build and test GNC algorithms, simulate orbital maneuver telemetries, and design automated collision avoidance paths using our 4x1N thruster clusters.",
     responsibilities: [
       "Develop high-fidelity 6-DOF orbital simulation environments for modular thruster arrays.",
@@ -53,7 +55,6 @@ export const SAMPLE_JOBS: JobPosition[] = [
     location: "Bengaluru, India (On-site)",
     type: "Full-Time",
     experience: "1-2 Years",
-    salary: "Standard + Performance Bonuses",
     description: "We are looking for a structural analyst who will ensure that our origami-inspired deployable solar arrays and modular propulsion systems withstand extreme launch loads and harsh thermal cycling in deep space.",
     responsibilities: [
       "Perform high-fidelity structural (static, modal, random vibration) and thermal analysis using FEM tools.",

@@ -33,13 +33,13 @@ export function CareersSection({ onSpeculativePitch }: CareersSectionProps) {
             {/* Header */}
             <div className="relative text-center max-w-3xl mx-auto flex flex-col items-center gap-3 mb-12">
               <span className="font-mono font-bold text-[11px] tracking-[0.2em] text-accent uppercase">
-                WE ARE HIRING IN BENGALURU
+                WE'RE HIRING | Bangalore, Ahmedabad
               </span>
               <h2 className="font-grotesk text-3xl md:text-4xl font-bold text-white tracking-tight">
                 Shape the Future of Space Tech
               </h2>
               <p className="text-dark-body text-base md:text-lg">
-                Work on mission-critical subsystems that power, guide, and propel next-generation satellites. Join our high-speed aerospace engineering workspace.
+                Work alongside passionate people solving complex challenges across engineering, product, operations, and business. Together, we're building the infrastructure that powers the next era of space exploration.
               </p>
             </div>
 
@@ -129,10 +129,7 @@ export function CareersSection({ onSpeculativePitch }: CareersSectionProps) {
                       </div>
 
                       {/* Footer Actions */}
-                      <div className="pt-6 border-t border-white/[0.08] flex flex-wrap gap-4 items-center justify-between">
-                        <div className="text-xs text-dark-body">
-                          Salary budget: <span className="font-semibold text-faint font-mono">{job.salary}</span>
-                        </div>
+                      <div className="pt-6 border-t border-white/[0.08] flex flex-wrap gap-4 items-center justify-end">
                         <button
                           onClick={() => setApplyJob(job)}
                           className="bg-accent hover:bg-accent-hover text-accent-ink font-bold text-sm px-6 py-3 rounded-[9px] transition-all active:scale-[0.98]"
@@ -151,13 +148,16 @@ export function CareersSection({ onSpeculativePitch }: CareersSectionProps) {
           </div>
 
             {/* Quick Notice */}
-            <div className="relative mt-12 text-center text-sm text-dark-body">
-              Don't see a role matching your skill set? We are always on the look out for space pioneers.
+            <div className="relative mt-12 flex flex-col items-center gap-5 text-center">
+              <p className="max-w-2xl text-sm text-dark-body">
+                Exceptional talent rarely fit inside a job description. If you're passionate about Space and building spacecraft technologies that push the boundaries of what's possible, we'd love to hear from you.
+              </p>
               <button
                 onClick={onSpeculativePitch}
-                className="text-accent hover:text-accent-hover font-bold ml-1 hover:underline"
+                className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-5 py-2.5 font-mono text-xs font-bold uppercase tracking-[0.12em] text-accent transition-colors hover:border-accent/70 hover:bg-accent/20 active:scale-[0.98] cursor-pointer"
               >
-                Send an open speculative pitch.
+                Apply proactively
+                <span aria-hidden="true">→</span>
               </button>
             </div>
 

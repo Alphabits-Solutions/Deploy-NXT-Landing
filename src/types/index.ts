@@ -7,7 +7,6 @@ export interface JobPosition {
   location: string;
   type: string;
   experience: string;
-  salary: string;
   description: string;
   responsibilities: string[];
   requirements: string[];
