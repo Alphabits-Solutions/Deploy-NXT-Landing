@@ -1,6 +1,16 @@
 import { useState } from "react";
 import { Check, Handshake, Lock, Mail, MapPin, Target } from "lucide-react";
 import type { ContactFormData } from "../../types";
+import { Select } from "../ui/Select";
+
+const INTEREST_OPTIONS = [
+  { value: "general", label: "General Corporate Inquiry" },
+  { value: "vyom-2u", label: "VYOM-2U Green Propulsion System" },
+  { value: "ibooster", label: "iBooster Propulsion Suite" },
+  { value: "thruster-array", label: "Modular Green Thruster (4x1N)" },
+  { value: "careers", label: "Careers & Engineering Hiring" },
+  { value: "patents", label: "Origami Deployable Patent Collab" },
+];
 
 interface ContactSectionProps {
   contactForm: ContactFormData;
@@ -10,6 +20,7 @@ interface ContactSectionProps {
 export const EMPTY_CONTACT_FORM: ContactFormData = {
   name: "",
   email: "",
+  phone: "",
   org: "",
   interest: "general",
   message: ""
@@ -45,7 +56,7 @@ export function ContactSection({ contactForm, setContactForm }: ContactSectionPr
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-none">
                 Let's Build the Future of Space Together!
               </h2>
-              <p className="text-slate-600 text-base md:text-lg">
+              <p className="text-slate-600 text-base md:text-lg text-justify">
                 Whether you're developing a satellite, exploring a new mission, or seeking an engineering partner, we're here to help. Connect with our team to discuss spacecraft structures, deployable systems, solar arrays, custom engineering, or collaborative R&amp;D. Our team typically responds within one business day.
               </p>
             </div>
@@ -93,17 +104,17 @@ export function ContactSection({ contactForm, setContactForm }: ContactSectionPr
                 </div>
               </div>
 
-            </div>
-
-            {/* Quality Standards Badge */}
-            <div className="border border-slate-200 rounded-2xl p-6 space-y-3">
-              <div className="flex items-center gap-2 text-slate-800 font-bold text-sm">
-                <Target className="h-5 w-5 text-teal-600" />
-                <span>Mission-Driven Engineering</span>
+              {/* Quality Standards Badge */}
+              <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-slate-200/60">
+                <Target className="h-5 w-5 text-teal-600 shrink-0 mt-0.5" />
+                <div>
+                  <div className="font-bold text-slate-800 text-sm">Mission-Driven Engineering</div>
+                  <p className="text-xs text-slate-600 mt-1">
+                    Every project is approached with a focus on reliability, manufacturability, and mission success, helping customers reduce development time and technical risk.
+                  </p>
+                </div>
               </div>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Every project is approached with a focus on reliability, manufacturability, and mission success, helping customers reduce development time and technical risk.
-              </p>
+
             </div>
 
           </div>
@@ -113,7 +124,7 @@ export function ContactSection({ contactForm, setContactForm }: ContactSectionPr
             <div className="w-full h-full flex flex-col bg-white border-[1.5px] border-accent rounded-[18px] p-9 space-y-6">
 
               <div className="text-left space-y-1.5">
-                <h3 className="font-grotesk font-bold text-xl text-ink">Secure Consultation Portal</h3>
+                <h3 className="font-grotesk font-bold text-xl text-ink">Let's Build Together</h3>
                 <div className="inline-flex items-center gap-[7px] text-[10.5px] text-teal-text font-mono tracking-[0.12em]">
                   <span className="h-[7px] w-[7px] rounded-full bg-accent" />
                   ENCRYPTED TRANSMISSION PROTOCOL ACTIVE
@@ -131,7 +142,7 @@ export function ContactSection({ contactForm, setContactForm }: ContactSectionPr
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Kunal Naik"
+                      placeholder="e.g. John Doe"
                       value={contactForm.name}
                       onChange={(e) => setContactForm({...contactForm, name: e.target.value})}
                       className="w-full bg-field border-[1.5px] border-hairline rounded-[10px] px-[15px] py-[13px] text-sm text-ink font-mono transition-all focus:outline-none focus:border-accent focus:bg-white focus:ring-4 focus:ring-accent/[0.14]"
@@ -142,7 +153,7 @@ export function ContactSection({ contactForm, setContactForm }: ContactSectionPr
                     <input
                       type="email"
                       required
-                      placeholder="e.g. k.naik@deploynxt.com"
+                      placeholder="e.g. john.doe@example.com"
                       value={contactForm.email}
                       onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
                       className="w-full bg-field border-[1.5px] border-hairline rounded-[10px] px-[15px] py-[13px] text-sm text-ink font-mono transition-all focus:outline-none focus:border-accent focus:bg-white focus:ring-4 focus:ring-accent/[0.14]"
@@ -152,29 +163,35 @@ export function ContactSection({ contactForm, setContactForm }: ContactSectionPr
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[10.5px] font-mono text-dark-body uppercase tracking-[0.12em] mb-2 font-medium">Organization / Agency</label>
+                    <label className="block text-[10.5px] font-mono text-dark-body uppercase tracking-[0.12em] mb-2 font-medium">Phone Number</label>
+                    <input
+                      type="tel"
+                      placeholder="e.g. +91 98765 43210"
+                      value={contactForm.phone}
+                      onChange={(e) => setContactForm({...contactForm, phone: e.target.value})}
+                      className="w-full bg-field border-[1.5px] border-hairline rounded-[10px] px-[15px] py-[13px] text-sm text-ink font-mono transition-all focus:outline-none focus:border-accent focus:bg-white focus:ring-4 focus:ring-accent/[0.14]"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10.5px] font-mono text-dark-body uppercase tracking-[0.12em] mb-2 font-medium">Organization / College / Institution</label>
                     <input
                       type="text"
-                      placeholder="e.g. Satellite Launch Corp"
+                      placeholder="e.g. Acme University"
                       value={contactForm.org}
                       onChange={(e) => setContactForm({...contactForm, org: e.target.value})}
                       className="w-full bg-field border-[1.5px] border-hairline rounded-[10px] px-[15px] py-[13px] text-sm text-ink font-mono transition-all focus:outline-none focus:border-accent focus:bg-white focus:ring-4 focus:ring-accent/[0.14]"
                     />
                   </div>
+                </div>
+
+                <div className="grid grid-cols-1 gap-4">
                   <div>
                     <label className="block text-[10.5px] font-mono text-dark-body uppercase tracking-[0.12em] mb-2 font-medium">Primary Topic of Interest</label>
-                    <select
+                    <Select
                       value={contactForm.interest}
-                      onChange={(e) => setContactForm({...contactForm, interest: e.target.value})}
-                      className="w-full bg-field border-[1.5px] border-hairline rounded-[10px] px-[15px] py-[13px] text-sm text-ink font-mono transition-all cursor-pointer focus:outline-none focus:border-accent focus:bg-white focus:ring-4 focus:ring-accent/[0.14]"
-                    >
-                      <option value="general">General Corporate Inquiry</option>
-                      <option value="vyom-2u">VYOM-2U Green Propulsion System</option>
-                      <option value="ibooster">iBooster Propulsion Suite</option>
-                      <option value="thruster-array">Modular Green Thruster (4x1N)</option>
-                      <option value="careers">Careers &amp; Engineering Hiring</option>
-                      <option value="patents">Origami Deployable Patent Collab</option>
-                    </select>
+                      options={INTEREST_OPTIONS}
+                      onChange={(v) => setContactForm({...contactForm, interest: v})}
+                    />
                   </div>
                 </div>
 
@@ -182,7 +199,7 @@ export function ContactSection({ contactForm, setContactForm }: ContactSectionPr
                   <label className="block text-[10.5px] font-mono text-dark-body uppercase tracking-[0.12em] mb-2 font-medium">Your Message / Sizing Requirements *</label>
                   <textarea
                     required
-                    placeholder="Please specify payload dimensions, desired total impulse, target launch schedule, or specific skills you are presenting."
+                    placeholder="Tell us about your project, requirements, or how we can help you."
                     value={contactForm.message}
                     onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
                     className="w-full flex-1 min-h-[120px] resize-y bg-field border-[1.5px] border-hairline rounded-[10px] px-[15px] py-[13px] text-sm text-ink font-mono transition-all focus:outline-none focus:border-accent focus:bg-white focus:ring-4 focus:ring-accent/[0.14]"

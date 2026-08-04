@@ -102,6 +102,7 @@ export function ProductsSection({
               if (prod.id !== selectedProduct) return null;
 
               const customImg = resolvedProdImgs[prod.id];
+              const underDevelopment = prod.id === "ibooster";
 
               return (
                 <div
@@ -131,6 +132,13 @@ export function ProductsSection({
                   {/* Image space: auto-advancing, manually scrollable vertical slideshow.
                       Falls back to a Google Drive override or the schematic mock. */}
                   <div className="relative w-full flex-1 min-h-0 rounded-2xl overflow-hidden bg-slate-900 shadow-inner flex items-center justify-center border border-slate-200">
+                    <div
+                      className={
+                        underDevelopment
+                          ? "w-full h-full blur-[3px] scale-[1.02] pointer-events-none select-none"
+                          : "w-full h-full"
+                      }
+                    >
                     <ProductImageSlideshow
                       images={prod.images}
                       overrideSrc={customImg}
@@ -200,6 +208,23 @@ export function ProductsSection({
                         </div>
                       }
                     />
+                    </div>
+
+                    {/* Under-development overlay (FLEX Class) */}
+                    {underDevelopment && (
+                      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-slate-900/60 backdrop-blur-[2px] text-center px-6">
+                        <span className="text-[11px] font-mono font-bold uppercase tracking-[0.3em] text-slate-900 bg-teal-400 rounded-full px-3.5 py-1.5 shadow-lg">
+                          Coming Soon
+                        </span>
+                        <span className="text-xl md:text-2xl font-extrabold text-white tracking-tight">
+                          Under Development
+                        </span>
+                        <span className="text-xs md:text-sm text-slate-300 max-w-xs">
+                          This product is currently in development. Details will
+                          be available soon.
+                        </span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Detailed Paragraph Description */}

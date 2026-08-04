@@ -49,6 +49,7 @@ export interface BlogArticle {
 export interface ContactFormData {
   name: string;
   email: string;
+  phone: string;
   org: string;
   interest: string;
   message: string;

@@ -14,7 +14,8 @@ export const SPACE_PRODUCTS: SpaceProduct[] = [
     description:
       "A modular, non-toxic space-tested satellite propulsion system designed for small satellites up to 100 kg. Delivering unmatched Δv for orbit raising, station-keeping, collision avoidance, and responsible end-of-life de-orbiting. Replaces toxic, carcinogenic hydrazine with proprietary eco-friendly MS289 propellant.",
     badges: [
-      "Z-type, Accordion Family",
+      "Z-type",
+      "Accordion Family",
       "Mission Agnostic",
       "Nanosat to Microsat class",
     ],
@@ -60,11 +61,7 @@ export const SPACE_PRODUCTS: SpaceProduct[] = [
       "Includes redundant flow-control valves and ultra-fast response heater arrays.",
       "Successfully integrated and validated for defense research agency requirements.",
     ],
-    images: [
-      img("Flex Class 1.png"),
-      img("Flex Class 2.png"),
-      img("Flex Class 3.png"),
-    ],
+    images: [img("Flex Class 3.png")],
   },
   {
     id: "thruster-array",

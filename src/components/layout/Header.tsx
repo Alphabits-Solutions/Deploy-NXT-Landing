@@ -10,7 +10,7 @@ const NAV_HEIGHT = 80; // matches header h-20
 const NAV_LINKS = [
   { id: "home", label: "Home" },
   { id: "products", label: "Products" },
-  { id: "supporters", label: "Supporters" },
+  // { id: "supporters", label: "Supporters" },
   { id: "team", label: "Team" },
   { id: "careers", label: "Careers" }
   // { id: "blog", label: "Blog" }
@@ -22,8 +22,12 @@ export function Header({ activeSection, onNavigate }: HeaderProps) {
   // when the hero's bottom reaches the nav — i.e. right as the hero ends,
   // not early (activeSection switches ~200px before the section boundary).
   const [atHome, setAtHome] = useState(true);
+  // True only when scrolled all the way to the top; drives the white home logo
+  // which hides the moment the user scrolls and reappears back at the top.
+  const [atTop, setAtTop] = useState(true);
   useEffect(() => {
     const update = () => {
+      setAtTop(window.scrollY <= 0);
       const hero = document.getElementById("home");
       if (!hero) {
         setAtHome(false);
@@ -41,6 +45,12 @@ export function Header({ activeSection, onNavigate }: HeaderProps) {
     };
   }, []);
 
+  // The white home logo is hidden whenever we're over the hero but not at the
+  // very top. Hiding is instant (no fade) so switching to the white src as the
+  // nav turns transparent never flashes the logo mid cross-fade; the reveal
+  // back at the top still fades in smoothly.
+  const logoHidden = atHome && !atTop;
+
   return (
     <header
       className={`sticky top-0 left-0 w-full z-40 h-20 box-border transition-colors duration-300 ${
@@ -56,15 +66,29 @@ export function Header({ activeSection, onNavigate }: HeaderProps) {
           onClick={() => onNavigate("home")}
           className="flex items-center transition-transform hover:scale-[1.02]"
         >
-          <img
-            src={
-              atHome
-                ? "/images/DNX%20Logo/DeployNXT_logo_combined_White.png"
-                : "/images/DNX%20Logo/DeployNXT_logo_combined.png"
-            }
-            alt="DeployNXT — Design, Develop, Disrupt"
-            className={`w-auto object-contain ${atHome ? "h-[72px]" : "h-12"}`}
-          />
+          <span className="relative inline-flex items-start">
+            <img
+              src={
+                atHome
+                  ? "/images/DNX%20Logo/DeployNXT_logo_combined_White.png"
+                  : "/images/DNX%20Logo/DeployNXT_logo_combined.png"
+              }
+              alt="DeployNXT — Design, Develop, Disrupt"
+              className={`w-auto object-contain ${
+                logoHidden ? "transition-none" : "transition-opacity duration-300"
+              } ${atHome ? "h-[72px]" : "h-12"} ${logoHidden ? "opacity-0" : "opacity-100"}`}
+            />
+            {/* Trademark superscript — small, raised ™ at the logo's top-right */}
+            <sup
+              className={`ml-0.5 text-[11px] font-semibold leading-none ${
+                logoHidden ? "transition-none" : "transition-opacity duration-300"
+              } ${atHome ? "mt-3" : "mt-1"} ${
+                atHome ? "text-white" : "text-ink"
+              } ${logoHidden ? "opacity-0" : "opacity-100"}`}
+            >
+              ™
+            </sup>
+          </span>
         </button>
 
         {/* Standard Top Navigation Links */}

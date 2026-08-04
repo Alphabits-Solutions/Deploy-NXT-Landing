@@ -164,9 +164,14 @@ export function CareersSection({ onSpeculativePitch }: CareersSectionProps) {
 
             {/* Quick Notice */}
             <div className="relative mt-12 flex flex-col items-center gap-5 text-center">
-              <p className="max-w-2xl text-sm text-dark-body">
-                Exceptional talent rarely fit inside a job description. If you're passionate about Space and building spacecraft technologies that push the boundaries of what's possible, we'd love to hear from you.
-              </p>
+              <div className="max-w-2xl space-y-2">
+                <p className="text-xl sm:text-2xl font-bold text-accent">
+                  Exceptional talent rarely fit inside a job description.
+                </p>
+                <p className="text-base sm:text-lg text-dark-body">
+                  If you're passionate about Space and building spacecraft technologies that push the boundaries of what's possible, we'd love to hear from you.
+                </p>
+              </div>
               <button
                 onClick={onSpeculativePitch}
                 className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-5 py-2.5 font-mono text-xs font-bold uppercase tracking-[0.12em] text-accent transition-colors hover:border-accent/70 hover:bg-accent/20 active:scale-[0.98] cursor-pointer"

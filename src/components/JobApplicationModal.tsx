@@ -1,5 +1,13 @@
 import { useState } from "react";
 import { Check, Minimize2 } from "lucide-react";
+import { Select } from "./ui/Select";
+
+const EXPERIENCE_OPTIONS = [
+  { value: "junior", label: "Entry level (0 - 2 Years)" },
+  { value: "mid", label: "Mid level (2 - 5 Years)" },
+  { value: "senior", label: "Senior level (5 - 8 Years)" },
+  { value: "director", label: "Principal / Director (8+ Years)" },
+];
 import type { JobPosition } from "../types";
 
 interface JobApplicationModalProps {
@@ -93,16 +101,12 @@ export function JobApplicationModal({ job, onClose }: JobApplicationModalProps) 
 
           <div>
             <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-1.5 font-bold">Total Relevant Experience *</label>
-            <select
+            <Select
+              variant="modal"
               value={applyForm.experience}
-              onChange={(e) => setApplyForm({...applyForm, experience: e.target.value})}
-              className="w-full bg-slate-50 border border-slate-200 focus:border-teal-600 rounded-xl px-4 py-3 text-sm focus:outline-none font-medium cursor-pointer"
-            >
-              <option value="junior">Entry level (0 - 2 Years)</option>
-              <option value="mid">Mid level (2 - 5 Years)</option>
-              <option value="senior">Senior level (5 - 8 Years)</option>
-              <option value="director">Principal / Director (8+ Years)</option>
-            </select>
+              options={EXPERIENCE_OPTIONS}
+              onChange={(v) => setApplyForm({...applyForm, experience: v})}
+            />
           </div>
 
           <div>

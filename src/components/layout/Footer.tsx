@@ -11,7 +11,7 @@ export function Footer({ onNavigate }: FooterProps) {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 space-y-16">
         {/* Top section */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-stretch">
           {/* Logo and brief brand text */}
           <div className="md:col-span-7 space-y-6 text-left">
             <button
@@ -25,13 +25,17 @@ export function Footer({ onNavigate }: FooterProps) {
               />
             </button>
 
-            <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
-              Engineering mission-critical spacecraft infrastructure for the
-              next generation of space missions. We design and develop
-              multifunctional components, deployable structures, and advanced
-              engineering solutions that enable reliable, scalable, and
-              high-performance spacecraft.
-            </p>
+            <div className="space-y-2 max-w-sm">
+              <p className="text-slate-200 text-sm font-medium leading-relaxed">
+                Engineering mission-critical spacecraft infrastructure for the
+                next generation of space missions.
+              </p>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                We design and develop multifunctional components, deployable
+                structures, and advanced engineering solutions that enable
+                reliable, scalable, and high-performance spacecraft.
+              </p>
+            </div>
 
             <div className="flex flex-wrap items-center gap-2.5 text-xs font-mono text-slate-500">
               <span className="h-2 w-2 rounded-full bg-teal-400" />
@@ -53,17 +57,19 @@ export function Footer({ onNavigate }: FooterProps) {
           */}
 
           {/* Support / Partners */}
-          <div className="md:col-span-5 space-y-4 text-left md:text-right">
-            <h5 className="font-mono text-xs text-teal-400 uppercase tracking-widest font-bold">
-              BUILDING WITH THE ECOSYSTEM
-            </h5>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              We collaborate with satellite manufacturers, research
-              institutions, government organizations, industry partners, and
-              deep-tech innovators to accelerate the development of
-              next-generation space and defense technologies.
-            </p>
-            <div className="flex flex-wrap gap-2 pt-2 md:justify-end">
+          <div className="md:col-span-5 flex">
+            <div className="w-full border-l-2 border-teal-400/60 pl-6 md:pl-8 flex flex-col justify-center space-y-3 text-left">
+              <h5 className="font-mono text-xs text-teal-400 uppercase tracking-[0.2em] font-bold">
+                Building With the Ecosystem
+              </h5>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                We collaborate with satellite manufacturers, research
+                institutions, government organizations, industry partners, and
+                deep-tech innovators to accelerate the development of
+                next-generation space and defense technologies.
+              </p>
+            </div>
+            {/* <div className="flex flex-wrap gap-2 pt-2 md:justify-end">
               <span className="bg-slate-900 border border-slate-800 text-[10px] font-mono text-slate-300 px-3 py-1 rounded">
                 DeployNXT Platform
               </span>
@@ -73,7 +79,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <span className="bg-slate-900 border border-slate-800 text-[10px] font-mono text-slate-300 px-3 py-1 rounded">
                 Patomic Labs
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
 

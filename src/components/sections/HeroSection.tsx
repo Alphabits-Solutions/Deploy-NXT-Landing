@@ -37,7 +37,7 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
               Space Infrastructure
             </span>{" "}
             <br />
-            for the Next Generation of Satellites
+            for the Next Generation Satellites
           </h1>
 
           <p className="text-slate-300 text-lg md:text-xl font-normal leading-relaxed max-w-xl">

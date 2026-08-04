@@ -31,7 +31,10 @@ export function useActiveSection() {
           const top = el.offsetTop;
           const height = el.offsetHeight;
           if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(section);
+            // "supporters" has no nav link (it's folded under Products), so
+            // highlight Products while it's in view instead of leaving the nav
+            // with nothing active.
+            setActiveSection(section === "supporters" ? "products" : section);
             break;
           }
         }
