@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, Mail, MapPin, ShieldCheck } from "lucide-react";
+import { Check, Handshake, Lock, Mail, MapPin, Target } from "lucide-react";
 import type { ContactFormData } from "../../types";
 
 interface ContactSectionProps {
@@ -43,10 +43,10 @@ export function ContactSection({ contactForm, setContactForm }: ContactSectionPr
                 GET IN TOUCH
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-none">
-                Let's Collaborate On Your Next Flight
+                Let's Build the Future of Space Together!
               </h2>
               <p className="text-slate-600 text-base md:text-lg">
-                Submit technical queries, request physical sizing simulations, or initiate standard launch-integration NDAs. Our systems engineering department responds within 24 hours.
+                Whether you're developing a satellite, exploring a new mission, or seeking an engineering partner, we're here to help. Connect with our team to discuss spacecraft structures, deployable systems, solar arrays, custom engineering, or collaborative R&amp;D. Our team typically responds within one business day.
               </p>
             </div>
 
@@ -56,19 +56,9 @@ export function ContactSection({ contactForm, setContactForm }: ContactSectionPr
               <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-slate-200/60">
                 <MapPin className="h-5 w-5 text-teal-600 shrink-0 mt-0.5" />
                 <div>
-                  <div className="font-bold text-slate-800 text-sm">Headquarters (R&amp;D Division)</div>
+                  <div className="font-bold text-slate-800 text-sm">Engineering Presence</div>
                   <p className="text-xs text-slate-600 mt-1">
-                    905, Prabhakunj Heights, Station Road, Navsari, Gujarat, India, 396445
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-slate-200/60">
-                <MapPin className="h-5 w-5 text-teal-600 shrink-0 mt-0.5" />
-                <div>
-                  <div className="font-bold text-slate-800 text-sm">Design &amp; Testing Facility</div>
-                  <p className="text-xs text-slate-600 mt-1">
-                    Whitefield Aerospace Corridor, Bengaluru, Karnataka, India
+                    Gujarat &amp; Karnataka, India
                   </p>
                 </div>
               </div>
@@ -76,11 +66,30 @@ export function ContactSection({ contactForm, setContactForm }: ContactSectionPr
               <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-slate-200/60">
                 <Mail className="h-5 w-5 text-teal-600 shrink-0 mt-0.5" />
                 <div>
-                  <div className="font-bold text-slate-800 text-sm">Direct Email Channels</div>
-                  <div className="text-xs text-teal-600 font-mono font-bold mt-1 space-y-1">
-                    <p>Corporate: contact@deploynxt.com</p>
-                    {/* <p>Space Integration Desk: engineering@aethernxt.space</p> */}
+                  <div className="font-bold text-slate-800 text-sm">Corporate Email</div>
+                  <div className="text-xs text-teal-600 font-mono font-bold mt-1">
+                    contact@deploynxt.com
                   </div>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-slate-200/60">
+                <Handshake className="h-5 w-5 text-teal-600 shrink-0 mt-0.5" />
+                <div>
+                  <div className="font-bold text-slate-800 text-sm">Collaboration</div>
+                  <p className="text-xs text-slate-600 mt-1">
+                    Open to partnerships, customer engagements, and collaborative R&amp;D.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-slate-200/60">
+                <Lock className="h-5 w-5 text-teal-600 shrink-0 mt-0.5" />
+                <div>
+                  <div className="font-bold text-slate-800 text-sm">Confidentiality Assured</div>
+                  <p className="text-xs text-slate-600 mt-1">
+                    Technical discussions and project information are handled under mutual NDAs upon request.
+                  </p>
                 </div>
               </div>
 
@@ -89,11 +98,11 @@ export function ContactSection({ contactForm, setContactForm }: ContactSectionPr
             {/* Quality Standards Badge */}
             <div className="border border-slate-200 rounded-2xl p-6 space-y-3">
               <div className="flex items-center gap-2 text-slate-800 font-bold text-sm">
-                <ShieldCheck className="h-5 w-5 text-teal-600" />
-                <span>Aerospace Integration Assured</span>
+                <Target className="h-5 w-5 text-teal-600" />
+                <span>Mission-Driven Engineering</span>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Every communication is held in strict compliance under aerospace-grade bilateral NDAs. We ensure design data security according to ISO 27001 requirements.
+                Every project is approached with a focus on reliability, manufacturability, and mission success, helping customers reduce development time and technical risk.
               </p>
             </div>
 

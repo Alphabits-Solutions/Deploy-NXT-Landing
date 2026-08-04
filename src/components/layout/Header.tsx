@@ -12,8 +12,8 @@ const NAV_LINKS = [
   { id: "products", label: "Products" },
   { id: "supporters", label: "Supporters" },
   { id: "team", label: "Team" },
-  { id: "careers", label: "Careers" },
-  { id: "blog", label: "Blog" }
+  { id: "careers", label: "Careers" }
+  // { id: "blog", label: "Blog" }
 ];
 
 // Glassy sticky header / navigation bar

@@ -9,94 +9,107 @@ export const SPACE_PRODUCTS: SpaceProduct[] = [
   {
     id: "vyom-2u",
     name: "FOLD Class – Rigid Deployable Solar Panels",
-    caption: "Origami-inspired rigid solar arrays for compact, scalable spacecraft",
-    description: "A modular, non-toxic space-tested satellite propulsion system designed for small satellites up to 100 kg. Delivering unmatched Δv for orbit raising, station-keeping, collision avoidance, and responsible end-of-life de-orbiting. Replaces toxic, carcinogenic hydrazine with proprietary eco-friendly MS289 propellant.",
-    badges: ["Z-type, Accordion Family", "Mission Agnostic", "Nanosat to Microsat class"],
+    caption:
+      "Origami-inspired rigid solar arrays for compact, scalable spacecraft",
+    description:
+      "A modular, non-toxic space-tested satellite propulsion system designed for small satellites up to 100 kg. Delivering unmatched Δv for orbit raising, station-keeping, collision avoidance, and responsible end-of-life de-orbiting. Replaces toxic, carcinogenic hydrazine with proprietary eco-friendly MS289 propellant.",
+    badges: [
+      "Z-type, Accordion Family",
+      "Mission Agnostic",
+      "Nanosat to Microsat class",
+    ],
     specs: {
       "Propellant Blend": "MS289 (Hazard index: Salt)",
       "Average Thrust": "1.0 N",
       "Specific Impulse (Isp)": "285 seconds",
       "Integration Complexity": "Zero (Plug-and-play CAN-bus)",
-      "Wet Mass": "3.2 kg"
+      "Wet Mass": "3.2 kg",
     },
     details: [
       "In-orbit demonstrated on ISRO's POEM-4 platform.",
       "Modular block design allows customizable propellant tanks to easily size up or down.",
-      "Completely eliminates toxic propellant safety gear, saving up to $150k in launch campaign prep."
+      "Completely eliminates toxic propellant safety gear, saving up to $150k in launch campaign prep.",
     ],
     images: [
-      img("Fold Class Deployed.png"),
-      img("Fold Class Variant 1.png"),
-      img("Fold Class 2nd Variant.png")
-    ]
+      img("Fold Class 1.png"),
+      img("Fold Class Z.png"),
+      img("Fold Class Z _2.png"),
+    ],
   },
   {
     id: "ibooster",
     name: "FLEX Class – Flexible Deployable Solar Panels",
-    caption: "Flexible solar array engineered for lightweight, high-power spacecraft.",
-    description: "An advanced green propulsion suite built for satellites in the 100–500 kg class. Specially engineered in a modular format to support both commercial mega-constellations and strategic defense missions. Highly reliable, customizable tank sizing, and ultra-fast deployment.",
-    badges: ["Adaptive Folding", "High Power Missions", "NanoSat to MicroSat Class"],
+    caption:
+      "Flexible solar array engineered for lightweight, high-power spacecraft.",
+    description:
+      "An advanced green propulsion suite built for satellites in the 100–500 kg class. Specially engineered in a modular format to support both commercial mega-constellations and strategic defense missions. Highly reliable, customizable tank sizing, and ultra-fast deployment.",
+    badges: [
+      "Adaptive Folding",
+      "High Power Missions",
+      "NanoSat to MicroSat Class",
+    ],
     specs: {
       "Propellant Type": "MS289 Green Propellant",
-      "Configuration": "4x1N Thruster Array",
+      Configuration: "4x1N Thruster Array",
       "Specific Impulse": "290 seconds",
       "Total Impulse": "150,000 Ns",
-      "Operating Temperature": "Up to 1350°C"
+      "Operating Temperature": "Up to 1350°C",
     },
     details: [
       "Engineered for deep-space trajectory adjustments and strategic orbital maneuvers.",
       "Includes redundant flow-control valves and ultra-fast response heater arrays.",
-      "Successfully integrated and validated for defense research agency requirements."
+      "Successfully integrated and validated for defense research agency requirements.",
     ],
     images: [
-      img("Flexclass.png")
-    ]
+      img("Flex Class 1.png"),
+      img("Flex Class 2.png"),
+      img("Flex Class 3.png"),
+    ],
   },
   {
     id: "thruster-array",
     name: "CORE Class – Body Mounted Solar Panels",
-    caption: "Reliable body-mounted solar panels for efficient spacecraft power.",
-    description: "An adaptable cluster of four 1-Newton green thrusters integrated into a singular mechanical structure. This setup provides active, instantaneous roll, pitch, and yaw maneuvering, perfect for extreme target pointing and agile attitude operations.",
+    caption:
+      "Reliable body-mounted solar panels for efficient spacecraft power.",
+    description:
+      "An adaptable cluster of four 1-Newton green thrusters integrated into a singular mechanical structure. This setup provides active, instantaneous roll, pitch, and yaw maneuvering, perfect for extreme target pointing and agile attitude operations.",
     badges: ["Customizable", "Cell Agnostic", "CubeSat to Microsat Class"],
     specs: {
       "Thrusters Included": "4 x 1-Newton Thrusters",
       "Response Time": "< 5 milliseconds",
       "Dry Mass": "850 grams",
       "Operating Temp Range": "-40°C to 125°C",
-      "Power Draw": "12W (Peak firing)"
+      "Power Draw": "12W (Peak firing)",
     },
     details: [
       "High frequency pulsing allows sub-millimeter level positioning on orbits.",
       "Integrated mechanical manifold prevents thermal transfer to the satellite bus.",
-      "Fully compatible with both MS289 and standard green propulsion propellant derivatives."
+      "Fully compatible with both MS289 and standard green propulsion propellant derivatives.",
     ],
-    images: [
-      img("Radiator.png"),
-      img("Radiator 2.png")
-    ]
+    images: [img("Body Mounted Panels 3U_Microsat.png")],
   },
   {
     id: "custom-engineering",
     name: "Solar Cell Technology",
-    caption: "Supporting qualified solar cell technologies through a trusted supply chain.",
-    description: "Have unique thrust, tank volume, or structural payload constraints? Our engineering team designs custom deployable structures, fuel manifolds, and micro-thruster groupings built around your mission profile — from first concept sketches through qualification and flight delivery.",
+    caption:
+      "Supporting qualified solar cell technologies through a trusted supply chain.",
+    description:
+      "Have unique thrust, tank volume, or structural payload constraints? Our engineering team designs custom deployable structures, fuel manifolds, and micro-thruster groupings built around your mission profile — from first concept sketches through qualification and flight delivery.",
     badges: ["Si, GaAs", "Next-Gen", "High Efficiency", "Space Qualified"],
     specs: {
       "Engagement Model": "Concept-to-flight partnership",
       "Design Cycle": "8-16 weeks (typical)",
-      "Deliverables": "CAD, FEA reports, EM & FM units",
-      "Compatibility": "CubeSat to 500kg class buses",
-      "Support": "Dedicated engineering liaison"
+      Deliverables: "CAD, FEA reports, EM & FM units",
+      Compatibility: "CubeSat to 500kg class buses",
+      Support: "Dedicated engineering liaison",
     },
     details: [
       "Requirements workshop to translate mission constraints into structural specifications.",
       "Rapid prototyping with iterative design reviews at every milestone.",
-      "Full qualification campaign support including vibration and thermal-vacuum testing."
+      "Full qualification campaign support including vibration and thermal-vacuum testing.",
     ],
-    images: [
-      img("Earth Image with Satellite.png")
-    ]
-  }
+    images: [img("GaAs.png"), img("Si_HJT_3rd Gen.png")],
+  },
 ];
 
 // Product ids used for the Google Drive image override workspace.

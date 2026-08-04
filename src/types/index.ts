@@ -10,6 +10,8 @@ export interface JobPosition {
   description: string;
   responsibilities: string[];
   requirements: string[];
+  /** Optional nice-to-have skills; renders an extra section when present */
+  preferredSkills?: string[];
 }
 
 export interface TeamMember {

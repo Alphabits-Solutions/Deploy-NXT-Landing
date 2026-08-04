@@ -9,7 +9,7 @@ import { SupportersSection } from "./components/sections/SupportersSection";
 import { ProductsSection } from "./components/sections/ProductsSection";
 import { TeamSection } from "./components/sections/TeamSection";
 import { CareersSection } from "./components/sections/CareersSection";
-import { BlogSection } from "./components/sections/BlogSection";
+// import { BlogSection } from "./components/sections/BlogSection";
 import { ContactSection, EMPTY_CONTACT_FORM } from "./components/sections/ContactSection";
 // import { GDriveWorkspace } from "./components/GDriveWorkspace";
 import type { ContactFormData } from "./types";
@@ -63,7 +63,7 @@ export default function App() {
       <SupportersSection />
       <TeamSection onNavigate={scrollToSection} />
       <CareersSection onSpeculativePitch={handleSpeculativePitch} />
-      <BlogSection />
+      {/* <BlogSection /> */}
       <ContactSection contactForm={contactForm} setContactForm={setContactForm} />
 
       {/* <GDriveWorkspace

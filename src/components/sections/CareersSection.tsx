@@ -128,6 +128,21 @@ export function CareersSection({ onSpeculativePitch }: CareersSectionProps) {
                         </ul>
                       </div>
 
+                      {/* Preferred Skills (optional, only when present) */}
+                      {job.preferredSkills && job.preferredSkills.length > 0 && (
+                        <div className="space-y-3">
+                          <h4 className="text-xs font-mono text-dark-body uppercase tracking-wider font-bold">PREFERRED SKILLS (OPTIONAL)</h4>
+                          <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                            {job.preferredSkills.map((skill, idx) => (
+                              <li key={idx} className="text-faint text-sm flex items-start gap-2 bg-white/[0.03] p-3 rounded-lg border border-white/[0.06]">
+                                <span className="h-1.5 w-1.5 rounded-full bg-teal-text mt-2 shrink-0" />
+                                <span>{skill}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
                       {/* Footer Actions */}
                       <div className="pt-6 border-t border-white/[0.08] flex flex-wrap gap-4 items-center justify-end">
                         <button

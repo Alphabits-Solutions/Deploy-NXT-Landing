@@ -3,7 +3,7 @@ import {
   Rocket,
   Users,
   Briefcase,
-  Mail,
+  // Mail, // used by commented-out Blog nav item
   MessageSquare,
   type LucideIcon
 } from "lucide-react";
@@ -18,7 +18,7 @@ const DOCK_ITEMS: { id: string; title: string; tooltip: string; icon: LucideIcon
   { id: "products", title: "Products", tooltip: "Products", icon: Rocket },
   { id: "team", title: "Team", tooltip: "Team", icon: Users },
   { id: "careers", title: "Careers", tooltip: "Careers", icon: Briefcase },
-  { id: "blog", title: "Blog/Newsletter", tooltip: "Blog / Newsletter", icon: Mail },
+  // { id: "blog", title: "Blog/Newsletter", tooltip: "Blog / Newsletter", icon: Mail },
   { id: "contact", title: "Contact Us", tooltip: "Contact Us", icon: MessageSquare }
 ];
 

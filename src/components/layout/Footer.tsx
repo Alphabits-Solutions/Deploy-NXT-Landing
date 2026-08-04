@@ -13,7 +13,7 @@ export function Footer({ onNavigate }: FooterProps) {
         {/* Top section */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
           {/* Logo and brief brand text */}
-          <div className="md:col-span-5 space-y-6 text-left">
+          <div className="md:col-span-7 space-y-6 text-left">
             <button
               onClick={() => onNavigate("home")}
               className="inline-flex items-center text-left cursor-pointer"
@@ -26,44 +26,44 @@ export function Footer({ onNavigate }: FooterProps) {
             </button>
 
             <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
-              Engineering origami-based, high-strength deployable structures and
-              zero-toxicity micro-propulsion architectures. Setting the
-              benchmark for mission-critical orbit control.
+              Engineering mission-critical spacecraft infrastructure for the
+              next generation of space missions. We design and develop
+              multifunctional components, deployable structures, and advanced
+              engineering solutions that enable reliable, scalable, and
+              high-performance spacecraft.
             </p>
 
-            <div className="flex items-center gap-4 text-xs font-mono text-slate-500">
-              <span className="flex items-center gap-1">
-                <span className="h-2 w-2 rounded-full bg-teal-400" />
-              </span>
-              Space Tested POEM-4
-              <span className="h-2 w-2 rounded-full bg-teal-400"></span>
-              <span>TRL-8 Certified</span>
+            <div className="flex flex-wrap items-center gap-2.5 text-xs font-mono text-slate-500">
+              <span className="h-2 w-2 rounded-full bg-teal-400" />
+              <span>Mission-Critical Space Systems</span>
+              <span className="h-2 w-2 rounded-full bg-teal-400" />
+              <span>Designed &amp; Engineered in India</span>
             </div>
           </div>
 
-          {/* Quick links */}
-          <div className="md:col-span-3 space-y-4 text-left">
-            {/* <h5 className="font-mono text-xs text-teal-400 uppercase tracking-widest font-bold">NAVIGATION</h5>
+          {/* Quick links (nav) — hidden for now; renders no grid cell while commented
+            <h5 className="font-mono text-xs text-teal-400 uppercase tracking-widest font-bold">NAVIGATION</h5>
             <div className="grid grid-cols-2 gap-2 text-sm text-slate-400">
               {FOOTER_LINKS.map(({ id, label }) => (
                 <button key={id} onClick={() => onNavigate(id)} className="hover:text-white transition-colors text-left py-1 cursor-pointer">
                   {label}
                 </button>
               ))}
-            </div> */}
-          </div>
+            </div>
+          */}
 
           {/* Support / Partners */}
-          <div className="md:col-span-4 space-y-4 text-left">
+          <div className="md:col-span-5 space-y-4 text-left md:text-right">
             <h5 className="font-mono text-xs text-teal-400 uppercase tracking-widest font-bold">
-              ECOSYSTEM COLLABORATIONS
+              BUILDING WITH THE ECOSYSTEM
             </h5>
             <p className="text-xs text-slate-400 leading-relaxed">
-              We work in direct integration with key governmental defense
-              partners, satellite bus suppliers, and spaceflight talent networks
-              including:
+              We collaborate with satellite manufacturers, research
+              institutions, government organizations, industry partners, and
+              deep-tech innovators to accelerate the development of
+              next-generation space and defense technologies.
             </p>
-            <div className="flex flex-wrap gap-2 pt-2">
+            <div className="flex flex-wrap gap-2 pt-2 md:justify-end">
               <span className="bg-slate-900 border border-slate-800 text-[10px] font-mono text-slate-300 px-3 py-1 rounded">
                 DeployNXT Platform
               </span>
