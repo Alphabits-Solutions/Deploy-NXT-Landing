@@ -27,8 +27,8 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
         {/* Text panel */}
         <div className="lg:col-span-7 space-y-8 text-left">
           <div className="inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/30 rounded-full px-4 py-1.5 text-teal-400 text-xs font-mono font-bold tracking-wider uppercase">
-            <Sparkles className="h-3 w-3 animate-spin" /> Modular • Deployable •
-            Scalable
+            <Sparkles className="h-3 w-3 animate-spin" /> Modular •
+            Multifunctional • Scalable
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight font-sans">

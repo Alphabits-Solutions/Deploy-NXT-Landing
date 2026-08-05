@@ -127,10 +127,13 @@ export function ContactSection({
               </h2>
               <p className="text-slate-600 text-base md:text-lg text-justify">
                 Whether you're developing a satellite, exploring a new mission,
-                or seeking an engineering partner, we're here to help. Connect
-                with our team to discuss spacecraft structures, deployable
-                systems, solar arrays, custom engineering, or collaborative
-                R&amp;D. Our team typically responds within one business day.
+                or seeking an engineering partner, we're here to help.
+              </p>
+              <p className="text-slate-600 text-base md:text-lg text-justify">
+                Connect with our team to discuss spacecraft structures,
+                deployable systems, solar arrays, custom engineering, or
+                collaborative R&amp;D. Our team typically responds within one
+                business day.
               </p>
             </div>
 
@@ -230,7 +233,7 @@ export function ContactSection({
                       <input
                         type="text"
                         required
-                        placeholder="e.g. John Doe"
+                        placeholder="Enter your name"
                         value={contactForm.name}
                         onChange={(e) =>
                           setContactForm({
@@ -248,7 +251,7 @@ export function ContactSection({
                       <input
                         type="email"
                         required
-                        placeholder="e.g. john.doe@example.com"
+                        placeholder="Enter your email"
                         value={contactForm.email}
                         onChange={(e) =>
                           setContactForm({
@@ -268,7 +271,7 @@ export function ContactSection({
                       </label>
                       <input
                         type="tel"
-                        placeholder="e.g. +91 98765 43210"
+                        placeholder="Enter your phone number"
                         value={contactForm.phone}
                         onChange={(e) =>
                           setContactForm({
@@ -285,7 +288,7 @@ export function ContactSection({
                       </label>
                       <input
                         type="text"
-                        placeholder="e.g. Acme University"
+                        placeholder="Enter your organization name"
                         value={contactForm.org}
                         onChange={(e) =>
                           setContactForm({

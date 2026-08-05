@@ -8,7 +8,7 @@ const img = (file: string) => encodeURI(`${IMG_DIR}/${file}`);
 export const SPACE_PRODUCTS: SpaceProduct[] = [
   {
     id: "vyom-2u",
-    name: "FOLD Class – Rigid Deployable Solar Panels",
+    name: "FOLD Class – Rigid Solar Panels",
     caption:
       "Origami-inspired rigid solar arrays for compact, scalable spacecraft",
     description:
@@ -39,7 +39,7 @@ export const SPACE_PRODUCTS: SpaceProduct[] = [
   },
   {
     id: "ibooster",
-    name: "FLEX Class – Flexible Deployable Solar Panels",
+    name: "FLEX Class – Flexible Solar Panels",
     caption:
       "Flexible solar array engineered for lightweight, high-power spacecraft.",
     description:

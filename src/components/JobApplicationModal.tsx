@@ -67,7 +67,7 @@ export function JobApplicationModal({ job, onClose }: JobApplicationModalProps) 
             <input
               type="text"
               required
-              placeholder="e.g. Kunal Naik"
+              placeholder="Enter your full name"
               value={applyForm.name}
               onChange={(e) => setApplyForm({...applyForm, name: e.target.value})}
               className="w-full bg-slate-50 border border-slate-200 focus:border-teal-600 rounded-xl px-4 py-3 text-sm focus:outline-none font-medium"
@@ -80,7 +80,7 @@ export function JobApplicationModal({ job, onClose }: JobApplicationModalProps) 
               <input
                 type="email"
                 required
-                placeholder="e.g. k.naik@gmail.com"
+                placeholder="Enter your email"
                 value={applyForm.email}
                 onChange={(e) => setApplyForm({...applyForm, email: e.target.value})}
                 className="w-full bg-slate-50 border border-slate-200 focus:border-teal-600 rounded-xl px-4 py-3 text-sm focus:outline-none font-medium"
@@ -91,7 +91,7 @@ export function JobApplicationModal({ job, onClose }: JobApplicationModalProps) 
               <input
                 type="tel"
                 required
-                placeholder="e.g. +91 96387 50700"
+                placeholder="Enter your phone number"
                 value={applyForm.phone}
                 onChange={(e) => setApplyForm({...applyForm, phone: e.target.value})}
                 className="w-full bg-slate-50 border border-slate-200 focus:border-teal-600 rounded-xl px-4 py-3 text-sm focus:outline-none font-medium"
