@@ -42,18 +42,19 @@ export function ProductsSection({
         {/* Interactive Product Showcase Row */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left Column: Product Selection List */}
-          <div className="lg:col-span-5 space-y-4">
+          <div className="lg:col-span-5 flex flex-col">
             <span className="text-[10.5px] font-mono text-meta uppercase tracking-[0.12em] font-medium block mb-2">
               SELECT A PRODUCT TECHNOLOGY
             </span>
 
+            <div className="flex-1 flex flex-col gap-4">
             {SPACE_PRODUCTS.map((prod) => {
               const isSelected = selectedProduct === prod.id;
               return (
                 <button
                   key={prod.id}
                   onClick={() => setSelectedProduct(prod.id)}
-                  className={`w-full text-left px-5 py-[18px] rounded-[14px] border-[1.5px] border-accent transition-[transform,box-shadow] duration-[220ms] ${
+                  className={`w-full flex-1 flex flex-col justify-center text-left px-5 py-[18px] rounded-[14px] border-[1.5px] border-accent transition-[transform,box-shadow] duration-[220ms] ${
                     isSelected
                       ? "bg-band shadow-[0_14px_34px_-16px_rgba(16,199,160,.7)]"
                       : "bg-card hover:-translate-y-[3px] hover:shadow-[0_16px_30px_-20px_rgba(11,22,34,.4)]"
@@ -94,6 +95,7 @@ export function ProductsSection({
                 </button>
               );
             })}
+            </div>
           </div>
 
           {/* Right Column: Detailed Product Card */}
@@ -131,7 +133,7 @@ export function ProductsSection({
 
                   {/* Image space: auto-advancing, manually scrollable vertical slideshow.
                       Falls back to a Google Drive override or the schematic mock. */}
-                  <div className="relative w-full flex-1 min-h-0 rounded-2xl overflow-hidden bg-slate-900 shadow-inner flex items-center justify-center border border-slate-200">
+                  <div className="relative w-full aspect-[16/9] shrink-0 rounded-2xl overflow-hidden bg-slate-900 shadow-inner flex items-center justify-center border border-slate-200">
                     <div
                       className={
                         underDevelopment
@@ -264,7 +266,7 @@ export function ProductsSection({
                   {/* Contact Us CTA (Autofills and scrolls to Contact Form) */}
                   <div className="mt-auto pt-4 border-t border-slate-200 flex items-center justify-between flex-wrap gap-4">
                     <div className="text-xs text-slate-500">
-                      Need tailored datasheets or custom payload simulations?
+                      Need custom solution for your mission critical components?
                     </div>
                     <button
                       onClick={() => onProductContact(prod.id, prod.name)}

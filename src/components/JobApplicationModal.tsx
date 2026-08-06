@@ -67,7 +67,6 @@ export function JobApplicationModal({ job, onClose }: JobApplicationModalProps) 
             <input
               type="text"
               required
-              placeholder="Enter your full name"
               value={applyForm.name}
               onChange={(e) => setApplyForm({...applyForm, name: e.target.value})}
               className="w-full bg-slate-50 border border-slate-200 focus:border-teal-600 rounded-xl px-4 py-3 text-sm focus:outline-none font-medium"
@@ -80,7 +79,6 @@ export function JobApplicationModal({ job, onClose }: JobApplicationModalProps) 
               <input
                 type="email"
                 required
-                placeholder="Enter your email"
                 value={applyForm.email}
                 onChange={(e) => setApplyForm({...applyForm, email: e.target.value})}
                 className="w-full bg-slate-50 border border-slate-200 focus:border-teal-600 rounded-xl px-4 py-3 text-sm focus:outline-none font-medium"
@@ -91,7 +89,6 @@ export function JobApplicationModal({ job, onClose }: JobApplicationModalProps) 
               <input
                 type="tel"
                 required
-                placeholder="Enter your phone number"
                 value={applyForm.phone}
                 onChange={(e) => setApplyForm({...applyForm, phone: e.target.value})}
                 className="w-full bg-slate-50 border border-slate-200 focus:border-teal-600 rounded-xl px-4 py-3 text-sm focus:outline-none font-medium"
@@ -114,7 +111,6 @@ export function JobApplicationModal({ job, onClose }: JobApplicationModalProps) 
             <input
               type="url"
               required
-              placeholder="https://linkedin.com/in/..."
               value={applyForm.portfolio}
               onChange={(e) => setApplyForm({...applyForm, portfolio: e.target.value})}
               className="w-full bg-slate-50 border border-slate-200 focus:border-teal-600 rounded-xl px-4 py-3 text-sm focus:outline-none font-medium"

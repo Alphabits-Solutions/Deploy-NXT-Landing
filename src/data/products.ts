@@ -32,9 +32,9 @@ export const SPACE_PRODUCTS: SpaceProduct[] = [
       "Completely eliminates toxic propellant safety gear, saving up to $150k in launch campaign prep.",
     ],
     images: [
-      img("Fold Class 1.png"),
-      img("Fold Class Z.png"),
-      img("Fold Class Z _2.png"),
+      img("Fold Class 1.webp"),
+      img("Fold Class Z.webp"),
+      img("Fold Class Z _2.webp"),
     ],
   },
   {
@@ -61,7 +61,7 @@ export const SPACE_PRODUCTS: SpaceProduct[] = [
       "Includes redundant flow-control valves and ultra-fast response heater arrays.",
       "Successfully integrated and validated for defense research agency requirements.",
     ],
-    images: [img("Flex Class 3.png")],
+    images: [img("Flex Class 3.webp")],
   },
   {
     id: "thruster-array",
@@ -83,7 +83,7 @@ export const SPACE_PRODUCTS: SpaceProduct[] = [
       "Integrated mechanical manifold prevents thermal transfer to the satellite bus.",
       "Fully compatible with both MS289 and standard green propulsion propellant derivatives.",
     ],
-    images: [img("Body Mounted Panels 3U_Microsat.png")],
+    images: [img("Body Mounted Panels 3U_Microsat.webp")],
   },
   {
     id: "custom-engineering",
@@ -105,7 +105,7 @@ export const SPACE_PRODUCTS: SpaceProduct[] = [
       "Rapid prototyping with iterative design reviews at every milestone.",
       "Full qualification campaign support including vibration and thermal-vacuum testing.",
     ],
-    images: [img("GaAs.png"), img("Si_HJT_3rd Gen.png")],
+    images: [img("GaAs.webp"), img("Si_HJT_3rd Gen.webp")],
   },
 ];
 

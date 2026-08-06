@@ -125,11 +125,11 @@ export function ContactSection({
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-none">
                 Let's Build the Future of Space Together!
               </h2>
-              <p className="text-slate-600 text-base md:text-lg text-justify">
+              <p className="text-teal-600 font-semibold text-base md:text-lg text-justify">
                 Whether you're developing a satellite, exploring a new mission,
                 or seeking an engineering partner, we're here to help.
               </p>
-              <p className="text-slate-600 text-base md:text-lg text-justify">
+              <p className="text-slate-600 text-sm md:text-base text-justify">
                 Connect with our team to discuss spacecraft structures,
                 deployable systems, solar arrays, custom engineering, or
                 collaborative R&amp;D. Our team typically responds within one
@@ -155,7 +155,7 @@ export function ContactSection({
                 <Mail className="h-5 w-5 text-teal-600 shrink-0 mt-0.5" />
                 <div>
                   <div className="font-bold text-slate-800 text-sm">
-                    Corporate Email
+                    Email
                   </div>
                   <div className="text-xs text-teal-600 font-mono font-bold mt-1">
                     contact@deploynxt.com
@@ -233,7 +233,6 @@ export function ContactSection({
                       <input
                         type="text"
                         required
-                        placeholder="Enter your name"
                         value={contactForm.name}
                         onChange={(e) =>
                           setContactForm({
@@ -246,12 +245,11 @@ export function ContactSection({
                     </div>
                     <div>
                       <label className="block text-[10.5px] font-mono text-dark-body uppercase tracking-[0.12em] mb-2 font-medium">
-                        Corporate Email *
+                        Email *
                       </label>
                       <input
                         type="email"
                         required
-                        placeholder="Enter your email"
                         value={contactForm.email}
                         onChange={(e) =>
                           setContactForm({
@@ -271,7 +269,6 @@ export function ContactSection({
                       </label>
                       <input
                         type="tel"
-                        placeholder="Enter your phone number"
                         value={contactForm.phone}
                         onChange={(e) =>
                           setContactForm({
@@ -288,7 +285,6 @@ export function ContactSection({
                       </label>
                       <input
                         type="text"
-                        placeholder="Enter your organization name"
                         value={contactForm.org}
                         onChange={(e) =>
                           setContactForm({
@@ -395,8 +391,8 @@ export function ContactSection({
                       htmlFor="nda-checkbox"
                       className="text-xs text-slate-500 select-none"
                     >
-                      I authorize the systems engineering team to review this
-                      message under mutual NDA protocols.
+                      I authorize the admin engineering team to review this
+                      message.
                     </label>
                   </div>
 
