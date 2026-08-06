@@ -378,7 +378,7 @@ export function ContactSection({
                     type="submit"
                     className="w-full bg-accent hover:bg-accent-hover text-accent-ink font-bold text-[15px] p-4 rounded-xl transition-all active:scale-[0.98] text-center"
                   >
-                    Submit Systems Query
+                    Submit
                   </button>
                 </div>
               </form>
