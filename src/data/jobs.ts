@@ -6,7 +6,7 @@ export const SAMPLE_JOBS: JobPosition[] = [
     id: "structures-mechanism-eng",
     title: "Senior Structures and Mechanism Engineer",
     department: "Mechanical-Systems Engineering",
-    location: "Bengaluru, India (On-Site)",
+    location: "Bengaluru / Ahmedabad, India (On-Site)",
     type: "Full-Time",
     experience: "4+ Years",
     description:

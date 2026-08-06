@@ -1,6 +1,11 @@
-import { useState } from "react";
-import { Check, Minimize2 } from "lucide-react";
+import { useRef, useState } from "react";
+import { Check, Minimize2, Paperclip, Upload, X } from "lucide-react";
 import { Select } from "./ui/Select";
+import {
+  ACCEPTED_FILE_EXTENSIONS,
+  formatFileSize,
+  validateFile,
+} from "../utils/fileUpload";
 
 const EXPERIENCE_OPTIONS = [
   { value: "junior", label: "Entry level (0 - 2 Years)" },
@@ -20,7 +25,6 @@ const EMPTY_APPLY_FORM = {
   email: "",
   phone: "",
   experience: "mid",
-  portfolio: "",
   coverLetter: ""
 };
 
@@ -28,14 +32,48 @@ const EMPTY_APPLY_FORM = {
 export function JobApplicationModal({ job, onClose }: JobApplicationModalProps) {
   const [applyForm, setApplyForm] = useState(EMPTY_APPLY_FORM);
   const [applySubmitted, setApplySubmitted] = useState(false);
+  // Resume attachment lives in local state (a File isn't part of the text form).
+  const [resume, setResume] = useState<File | null>(null);
+  const [fileError, setFileError] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Validate a chosen resume against the allowed types and size cap.
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const error = validateFile(file);
+    if (error) {
+      setFileError(error);
+      setResume(null);
+      e.target.value = "";
+      return;
+    }
+
+    setFileError(null);
+    setResume(file);
+  };
+
+  // Clear the current resume and reset the underlying input.
+  const removeResume = () => {
+    setResume(null);
+    setFileError(null);
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  };
 
   // Handle job apply submit
   const handleApplySubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // A resume upload is required to submit.
+    if (!resume) {
+      setFileError("Please attach your resume.");
+      return;
+    }
     setApplySubmitted(true);
     setTimeout(() => {
       setApplySubmitted(false);
       setApplyForm(EMPTY_APPLY_FORM);
+      removeResume();
       onClose();
     }, 4000);
   };
@@ -107,14 +145,49 @@ export function JobApplicationModal({ job, onClose }: JobApplicationModalProps) 
           </div>
 
           <div>
-            <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-1.5 font-bold">Resume / LinkedIn / Portfolio Link *</label>
+            <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-1.5 font-bold">Resume / CV *</label>
             <input
-              type="url"
-              required
-              value={applyForm.portfolio}
-              onChange={(e) => setApplyForm({...applyForm, portfolio: e.target.value})}
-              className="w-full bg-slate-50 border border-slate-200 focus:border-teal-600 rounded-xl px-4 py-3 text-sm focus:outline-none font-medium"
+              ref={fileInputRef}
+              type="file"
+              accept={ACCEPTED_FILE_EXTENSIONS}
+              onChange={handleFileChange}
+              className="hidden"
             />
+            {resume ? (
+              <div className="flex items-center gap-3 w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3">
+                <Paperclip className="h-4 w-4 text-teal-600 shrink-0" />
+                <div className="min-w-0 flex-1">
+                  <div className="text-sm text-slate-900 font-medium truncate">
+                    {resume.name}
+                  </div>
+                  <div className="text-[11px] text-slate-500 font-mono">
+                    {formatFileSize(resume.size)}
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={removeResume}
+                  aria-label="Remove resume"
+                  className="shrink-0 text-slate-400 hover:text-red-600 transition-colors cursor-pointer"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={() => fileInputRef.current?.click()}
+                className="flex items-center gap-2 w-full bg-slate-50 border border-dashed border-slate-300 hover:border-teal-600 hover:bg-white rounded-xl px-4 py-3 text-sm text-slate-500 font-medium transition-all focus:outline-none focus:border-teal-600 cursor-pointer"
+              >
+                <Upload className="h-4 w-4 text-teal-600 shrink-0" />
+                Upload (PDF, DOC, PPT · 10MB)
+              </button>
+            )}
+            {fileError && (
+              <p className="mt-2 text-xs text-red-600 font-mono">
+                {fileError}
+              </p>
+            )}
           </div>
 
           <div>
@@ -157,7 +230,7 @@ export function JobApplicationModal({ job, onClose }: JobApplicationModalProps) 
             </div>
             <h4 className="font-extrabold text-xl text-slate-900">Application Transmitted!</h4>
             <p className="text-sm text-slate-600 max-w-xs">
-              Hi {applyForm.name}, your application for the <strong>{job.title}</strong> has been logged. Our recruitment desk will review your links and follow up with orbital tests.
+              Hi {applyForm.name}, your application for the <strong>{job.title}</strong> has been logged. Our recruitment desk will review your resume and follow up with orbital tests.
             </p>
             <button
               onClick={() => {

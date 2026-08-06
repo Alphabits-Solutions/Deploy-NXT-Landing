@@ -12,6 +12,11 @@ import {
 } from "lucide-react";
 import type { ContactFormData } from "../../types";
 import { Select } from "../ui/Select";
+import {
+  ACCEPTED_FILE_EXTENSIONS,
+  formatFileSize,
+  validateFile,
+} from "../../utils/fileUpload";
 
 const INTEREST_OPTIONS = [
   { value: "general", label: "General Inquiry" },
@@ -22,24 +27,6 @@ const INTEREST_OPTIONS = [
   },
   { value: "vendor", label: "Vendor/Supplier" },
 ];
-
-// Accepted attachment types and 10MB size cap for the contact form file field.
-const ACCEPTED_FILE_EXTENSIONS = ".pdf,.doc,.docx,.ppt,.pptx";
-const ACCEPTED_FILE_TYPES = [
-  "application/pdf",
-  "application/msword",
-  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-  "application/vnd.ms-powerpoint",
-  "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-];
-const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
-
-// Format a byte count as a short human-readable size (e.g. "2.4 MB").
-function formatFileSize(bytes: number): string {
-  if (bytes < 1024) return `${bytes} B`;
-  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
-  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
-}
 
 interface ContactSectionProps {
   contactForm: ContactFormData;
@@ -73,18 +60,9 @@ export function ContactSection({
     const file = e.target.files?.[0];
     if (!file) return;
 
-    const nameOk = ACCEPTED_FILE_EXTENSIONS.split(",").some((ext) =>
-      file.name.toLowerCase().endsWith(ext),
-    );
-    const typeOk = file.type === "" || ACCEPTED_FILE_TYPES.includes(file.type);
-    if (!nameOk || !typeOk) {
-      setFileError("Unsupported file type. Use PDF, DOC, or PPT.");
-      setAttachment(null);
-      e.target.value = "";
-      return;
-    }
-    if (file.size > MAX_FILE_SIZE) {
-      setFileError("File is too large. Maximum size is 10MB.");
+    const error = validateFile(file);
+    if (error) {
+      setFileError(error);
       setAttachment(null);
       e.target.value = "";
       return;
@@ -391,7 +369,7 @@ export function ContactSection({
                       htmlFor="nda-checkbox"
                       className="text-xs text-slate-500 select-none"
                     >
-                      I authorize the admin engineering team to review this
+                      I authorize the admin team to review this
                       message.
                     </label>
                   </div>
@@ -417,16 +395,13 @@ export function ContactSection({
                     </span>
                   </div>
                   <p className="text-xs text-slate-200 leading-relaxed">
-                    Your query has been assigned to{" "}
-                    <span className="text-teal-400 font-bold">Kunal Naik</span>{" "}
-                    and the Systems Engineering desk. We have initialized a
-                    secure file container to receive your payload
-                    specifications.
+                    Your query has been assigned to our{" "}
+                    <span className="text-teal-400 font-bold">
+                      Systems Engineering
+                    </span>{" "}
+                    team. We have initialized a secure file container to receive
+                    your payload specifications.
                   </p>
-                  <div className="text-[10px] font-mono text-teal-400/80">
-                    SECURE ID REFERENCE: TX-
-                    {Math.floor(100000 + Math.random() * 900000)}
-                  </div>
                 </div>
               )}
             </div>
